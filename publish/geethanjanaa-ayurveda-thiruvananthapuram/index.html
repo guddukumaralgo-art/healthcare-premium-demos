@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GEETHANJANAA AYURVEDA | Premium Healthcare Demo</title>
+  <title>GEETHANJANAA AYURVEDA | Dermatology Demo</title>
   <style>
     :root {
-      --accent: #7e22ce;
-      --accent-2: #c084fc;
-      --accent-soft: #faf5ff;
-      --accent-glow: rgba(216, 180, 254, 0.46);
+      --accent: #be123c;
+      --accent-2: #a855f7;
+      --accent-3: #fb7185;
+      --accent-soft: #fff1f2;
+      --accent-glow: rgba(251, 207, 232, 0.56);
+      --page-bg: linear-gradient(180deg, #fffafa 0%, #fff7fb 46%, #ffffff 100%);
+      --hero-bg: radial-gradient(circle at 12% 12%, rgba(251,207,232,.56), transparent 27rem), radial-gradient(circle at 90% 12%, rgba(221,214,254,.55), transparent 25rem), linear-gradient(135deg, #fff7ed 0%, #fff1f2 45%, #f5f3ff 100%);
+      --section-bg: linear-gradient(180deg, #ffffff 0%, #fff1f2 58%, #f5f3ff 100%);
       --ink: #0f172a;
       --muted: #64748b;
       --line: rgba(226, 232, 240, 0.9);
@@ -20,22 +24,19 @@
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 0 0, var(--accent-glow), transparent 26rem),
-        radial-gradient(circle at 88% 8%, rgba(216, 180, 254, 0.24), transparent 24rem),
-        linear-gradient(180deg, #fbfefd 0%, #f8fcff 48%, #fbfefd 100%);
+      background: var(--page-bg);
       text-rendering: geometricPrecision;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     .disclaimer {
-      border-bottom: 1px solid #cffafe;
-      background: linear-gradient(90deg, #ecfeff, #fff, #faf5ff);
+      border-bottom: 1px solid rgba(226,232,240,.9);
+      background: linear-gradient(90deg, #ffffff, var(--accent-soft), #ffffff);
       padding: 12px 16px;
       text-align: center;
       color: #475569;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
     }
     .nav-wrap { position: sticky; top: 0; z-index: 20; padding: 12px; }
     .nav {
@@ -47,13 +48,13 @@
       gap: 16px;
       border: 1px solid rgba(255,255,255,.86);
       border-radius: 999px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
       padding: 12px 14px;
       box-shadow: 0 18px 55px rgba(15,23,42,.08);
       backdrop-filter: blur(22px);
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; min-width: 0; }
-    .logo-mark, .brand-icon, .icon-box {
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 780; min-width: 0; }
+    .logo-mark, .icon-box {
       width: 44px; height: 44px; border-radius: 999px;
       display: grid; place-items: center;
       color: var(--accent);
@@ -68,18 +69,19 @@
     .nav-links { display: none; gap: 26px; border: 1px solid #f1f5f9; background: rgba(248,250,252,.74); border-radius: 999px; padding: 12px 18px; color: #64748b; font-size: 14px; font-weight: 650; }
     .nav-cta, .btn-primary, .btn-secondary {
       display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      border-radius: 999px; font-size: 14px; font-weight: 750;
-      transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+      border-radius: 999px; font-size: 14px; font-weight: 780;
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease, border-color .28s ease;
     }
     .nav-cta { background: #0f172a; color: #fff; padding: 12px 16px; box-shadow: 0 16px 38px rgba(15,23,42,.15); }
     .btn-primary { background: #0f172a; color: #fff; padding: 16px 28px; box-shadow: 0 30px 100px rgba(15,23,42,.13); }
     .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.9); color: #1f2937; padding: 16px 28px; box-shadow: 0 18px 55px rgba(15,23,42,.08); }
     .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-4px); }
     .btn-primary:hover, .nav-cta:hover { background: var(--accent); }
-    .hero { position: relative; overflow: hidden; padding: 76px 16px 112px; }
+    .btn-secondary:hover { border-color: var(--accent-soft); background: var(--accent-soft); }
+    .hero { position: relative; overflow: hidden; padding: 76px 16px 122px; background: var(--hero-bg); }
     .blob { position: absolute; border-radius: 38% 62% 65% 35% / 42% 44% 56% 58%; filter: blur(78px); pointer-events: none; transform: rotate(-10deg); }
     .blob-a { left: -120px; top: 90px; width: 450px; height: 320px; background: var(--accent-glow); }
-    .blob-b { right: -140px; top: 120px; width: 470px; height: 360px; background: rgba(216, 180, 254, .34); }
+    .blob-b { right: -140px; top: 120px; width: 470px; height: 360px; background: color-mix(in srgb, var(--accent-2) 18%, transparent); }
     .container { max-width: 1180px; margin: 0 auto; position: relative; }
     .hero-grid { display: grid; gap: 64px; align-items: center; }
     .eyebrow {
@@ -91,7 +93,7 @@
       color: var(--accent);
       box-shadow: 0 18px 55px rgba(15,23,42,.08);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: .16em;
       text-transform: uppercase;
     }
@@ -101,11 +103,11 @@
       max-width: 790px;
       font-size: clamp(46px, 8vw, 82px);
       line-height: .98;
-      font-weight: 760;
+      font-weight: 780;
       letter-spacing: 0;
     }
     .gradient-text {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), #7c3aed);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -133,7 +135,7 @@
     }
     .badge-dot { width: 22px; height: 22px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: 0 0 auto; }
     .visual-shell { position: relative; }
-    .visual-glow { position: absolute; inset: -24px; border-radius: 40px; background: linear-gradient(135deg, var(--accent-glow), rgba(255,255,255,.2), rgba(216,180,254,.3)); filter: blur(28px); }
+    .visual-glow { position: absolute; inset: -24px; border-radius: 40px; background: linear-gradient(135deg, var(--accent-glow), rgba(255,255,255,.2), color-mix(in srgb, var(--accent-2) 22%, transparent)); filter: blur(28px); }
     .visual-card {
       position: relative; overflow: hidden;
       border: 2px solid #fff;
@@ -142,8 +144,23 @@
       padding: 8px;
       box-shadow: 0 30px 100px rgba(15,23,42,.13);
     }
+    .visual-topline {
+      position: absolute; z-index: 2; left: 24px; right: 24px; top: 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .visual-topline > span:first-child {
+      border-radius: 999px; background: rgba(255,255,255,.84); color: var(--accent);
+      padding: 9px 13px; font-size: 13px; font-weight: 850; box-shadow: 0 18px 55px rgba(15,23,42,.08);
+      backdrop-filter: blur(16px);
+    }
+    .visual-icon, .visual-strip span {
+      width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center;
+      color: var(--accent); background: rgba(255,255,255,.86); box-shadow: 0 18px 55px rgba(15,23,42,.08);
+      backdrop-filter: blur(16px);
+    }
     .visual-image-wrap { aspect-ratio: 4 / 3; border-radius: 25px; overflow: hidden; }
     .visual-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .visual-strip { position: absolute; left: 24px; bottom: 24px; display: flex; gap: 10px; }
     .appointment {
       position: relative;
       margin-top: 16px;
@@ -157,30 +174,32 @@
     .appointment-row { display: flex; align-items: center; gap: 16px; }
     .doctor-avatar { width: 58px; height: 58px; border-radius: 999px; flex: 0 0 auto; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent-soft), #fff); color: var(--accent); font-weight: 850; }
     .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .appointment small { color: var(--accent); font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .appointment small { color: var(--accent); font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
     .appointment h2 { margin: 8px 0 0; font-size: 26px; }
     .appointment p { margin: 8px 0 0; color: var(--muted); line-height: 1.6; }
-    section.content { padding: 112px 16px; }
+    section.content { padding: 118px 16px; }
     .section-head { max-width: 760px; margin-bottom: 64px; }
     .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-    .section-head p:first-child { color: var(--accent); font-size: 13px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .section-head p:first-child, .cta-kicker { color: var(--accent); font-size: 13px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
     .section-head h2 { margin: 18px 0 0; font-size: clamp(36px, 5vw, 52px); line-height: 1.06; letter-spacing: 0; }
     .section-head .copy { margin: 22px 0 0; color: var(--muted); line-height: 1.8; font-size: 16px; }
     .cards { display: grid; gap: 22px; }
     .service-card, .trust-card, .journey-card {
       border: 1px solid #f1f5f9;
       border-radius: 26px;
-      background: #fff;
+      background: rgba(255,255,255,.92);
       padding: 28px;
       box-shadow: 0 18px 55px rgba(15,23,42,.08);
       transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
+    .service-card { min-height: 282px; position: relative; overflow: hidden; }
+    .service-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3)); opacity: .9; }
     .service-card:hover { transform: translateY(-8px); border-color: var(--accent-soft); box-shadow: 0 30px 100px rgba(15,23,42,.13); }
     .service-icon { width: 56px; height: 56px; border-radius: 18px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 28px; }
     .service-icon svg { width: 27px; height: 27px; }
     .service-card h3, .trust-card h3, .journey-card h3 { margin: 0; font-size: 21px; }
     .service-card p, .trust-card p, .journey-card p { color: var(--muted); line-height: 1.75; margin: 14px 0 0; }
-    .about-band { background: linear-gradient(180deg, #fff, var(--accent-soft)); }
+    .about-band { background: var(--section-bg); }
     .about-box {
       border: 1px solid rgba(255,255,255,.85);
       border-radius: 32px;
@@ -199,17 +218,18 @@
     .cta {
       position: relative; overflow: hidden;
       border-radius: 32px;
-      background: #0f172a;
+      background: linear-gradient(135deg, #0f172a, color-mix(in srgb, var(--accent-2) 28%, #0f172a));
       color: #fff;
       padding: 36px;
       box-shadow: 0 30px 100px rgba(15,23,42,.13);
     }
     .cta::before { content: ""; position: absolute; right: -80px; top: -80px; width: 300px; height: 300px; border-radius: 999px; background: var(--accent); opacity: .22; filter: blur(50px); }
     .cta-grid { position: relative; display: grid; gap: 34px; align-items: center; }
-    .cta h2 { margin: 0; font-size: clamp(36px, 5vw, 52px); line-height: 1.08; }
+    .cta h2 { margin: 14px 0 0; font-size: clamp(36px, 5vw, 52px); line-height: 1.08; }
     .cta p { color: rgba(255,255,255,.72); line-height: 1.8; }
     .contact-card { display: grid; gap: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 24px; background: rgba(255,255,255,.1); padding: 18px; backdrop-filter: blur(18px); }
-    .contact-card a { border-radius: 999px; background: #fff; color: var(--ink); padding: 16px 20px; font-weight: 750; }
+    .contact-card a { border-radius: 999px; background: #fff; color: var(--ink); padding: 16px 20px; font-weight: 780; text-align: center; transition: transform .25s ease; }
+    .contact-card a:hover { transform: translateY(-3px); }
     footer { padding: 40px 16px; color: #64748b; border-top: 1px solid #f1f5f9; background: #fff; }
     .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
     .reveal { opacity: 0; transform: translateY(22px); animation: reveal .75s ease forwards; }
@@ -268,32 +288,37 @@
       <div class="blob blob-b"></div>
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg> Thiruvananthapuram Dermatology Clinic</div>
-          <h1>Advanced Skin Care in Thiruvananthapuram <span class="gradient-text">for modern patient outreach.</span></h1>
+          <div class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg> Soft skin clinic concept · Thiruvananthapuram</div>
+          <h1>Advanced Skin Care in Thiruvananthapuram <span class="gradient-text">clearer skin-care conversations.</span></h1>
           <p class="subhead">Advanced skin, hair, and aesthetic care designed around patient confidence.</p>
           <div class="actions">
-            <a class="btn-primary" href="tel:+919508655628">Call now</a>
-            <a class="btn-secondary" href="https://wa.me/919508655628">WhatsApp chat</a>
+            <a class="btn-primary" href="tel:+919508655628">Book skin consultation</a>
+            <a class="btn-secondary" href="https://wa.me/919508655628">WhatsApp skin clinic</a>
           </div>
           <div class="badges">
-            <div class="badge delay-1"><span class="badge-dot">✓</span> Clear appointment path</div>
-            <div class="badge delay-2"><span class="badge-dot">✓</span> Calm premium design</div>
-            <div class="badge delay-3"><span class="badge-dot">✓</span> Sample-safe copy</div>
+            <div class="badge delay-1"><span class="badge-dot">✓</span> Skin consultation framing</div><div class="badge delay-2"><span class="badge-dot">✓</span> Beauty plus medical trust</div><div class="badge delay-3"><span class="badge-dot">✓</span> Private, measured copy</div>
           </div>
         </div>
 
         <div class="visual-shell reveal delay-2">
           <div class="visual-glow"></div>
           <div class="visual-card">
+            <div class="visual-topline">
+              <span>Dermatology preview</span>
+              <span class="visual-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></span>
+            </div>
             <div class="visual-image-wrap">
               <img src="https://media.licdn.com/dms/image/v2/D5616AQEuB73v8xJ4ag/profile-displaybackgroundimage-shrink_350_1400/B56Zncs6YMI8AY-/0/1760344387837?e=1778716800&amp;v=beta&amp;t=jrxE8oI8dRf_M5xYqePB9TWIcCaTFgyvZxnud8BfvpU" alt="GEETHANJANAA AYURVEDA visual preview" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1200&amp;q=80';" />
+            </div>
+            <div class="visual-strip">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
             </div>
           </div>
           <div class="appointment">
             <div class="appointment-row">
               <div class="doctor-avatar image-avatar"><img src="https://media.licdn.com/dms/image/v2/C5603AQFaZzW9qUXEdA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1592361992383?e=1778716800&amp;v=beta&amp;t=jKJXzG9Rq7ZHyo1hUo3NXVeIixbqIdgj5UAAD0TRuCU" alt="Dr.Anjana Madhu profile" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1200&amp;q=80';" /></div>
               <div class="appointment-copy">
-                <small>Appointment</small>
+                <small>Book skin consultation</small>
                 <h2>Request a consult</h2>
                 <p>Dr.Anjana Madhu · Managing Partner &amp; Ayurvedic Physician (Cosmetology &amp; Wellness Specialist)</p>
               </div>
@@ -306,34 +331,34 @@
     <section id="services" class="content">
       <div class="container">
         <div class="section-head reveal">
-          <p>Services</p>
-          <h2>Focused sections built around Managing Partner &amp; Ayurvedic Physician (Cosmetology &amp; Wellness Specialist).</h2>
-          <p class="copy">Service cards use the lead data while keeping the language clear, premium, and responsible.</p>
+          <p>Skin Clinic Services</p>
+          <h2>Skin-care sections shaped around Managing Partner &amp; Ayurvedic Physician (Cosmetology &amp; Wellness Specialist).</h2>
+          <p class="copy">These cards use the lead data first, then fall back to dermatology-specific topics with careful sample-safe language.</p>
         </div>
         <div class="cards">
           
             <article class="service-card reveal delay-0">
               <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div>
               <h3>Acne Treatment</h3>
-              <p>Clear information and appointment guidance for acne treatment inquiries.</p>
+              <p>A clear entry point for acne-related consultation inquiries.</p>
             </article>
           
             <article class="service-card reveal delay-1">
-              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
               <h3>Laser Treatment</h3>
-              <p>Clear information and appointment guidance for laser treatment inquiries.</p>
+              <p>Premium framing for laser treatment conversations.</p>
             </article>
           
             <article class="service-card reveal delay-2">
-              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
               <h3>Pigmentation Care</h3>
-              <p>Clear information and appointment guidance for pigmentation care inquiries.</p>
+              <p>Careful language for age-related skin-care interest.</p>
             </article>
           
             <article class="service-card reveal delay-3">
-              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 0 1 12 6a5 5 0 0 1 7.5 6.6z"/><path d="M3 12h4l2-4 3 8 2-4h7"/></svg></div>
               <h3>Skin Rejuvenation</h3>
-              <p>Clear information and appointment guidance for skin rejuvenation inquiries.</p>
+              <p>A calm pathway for first-time dermatology visitors.</p>
             </article>
           
         </div>
@@ -343,7 +368,7 @@
     <section id="about" class="content about-band">
       <div class="container">
         <div class="section-head reveal">
-          <p>About</p>
+          <p>About Dermatology</p>
           <h2>GEETHANJANAA AYURVEDA in Thiruvananthapuram.</h2>
         </div>
         <div class="about-box reveal delay-1">
@@ -351,6 +376,7 @@
           <div class="about-meta">
             <span>Thiruvananthapuram, Kerala, India</span>
             <span>hello@geethanjanaaayurvedathiruvananthapu.demo</span>
+            <span>dermatologist → Dermatology</span>
           </div>
         </div>
       </div>
@@ -360,13 +386,29 @@
       <div class="container">
         <div class="section-head center reveal">
           <p>Trust cues</p>
-          <h2>Skin-care pages with a private, premium tone.</h2>
-          <p class="copy">Service sections are framed as consultation topics and avoid before-after promises or outcome claims.</p>
+          <h2>A private, premium tone for skin-care decisions.</h2>
+          <p class="copy">The rose and lavender system feels elevated while avoiding dramatic transformation promises.</p>
         </div>
         <div class="trust-grid">
-          <article class="trust-card reveal"><small>Clarity</small><h3>Simple next steps</h3><p>Visitors can quickly understand how to connect and what the first action is.</p></article>
-          <article class="trust-card reveal delay-1"><small>Restraint</small><h3>No fake claims</h3><p>The page avoids unverifiable awards, guarantees, ratings, and outcome promises.</p></article>
-          <article class="trust-card reveal delay-2"><small>Access</small><h3>Mobile-first contact</h3><p>Call and WhatsApp actions are easy to use across mobile and desktop layouts.</p></article>
+          
+            <article class="trust-card reveal delay-0">
+              <small>Privacy</small>
+              <h3>Composed patient flow</h3>
+              <p>The page feels calm for sensitive skin and aesthetic topics.</p>
+            </article>
+          
+            <article class="trust-card reveal delay-1">
+              <small>Restraint</small>
+              <h3>No before-after promises</h3>
+              <p>Copy is consultative instead of sensational.</p>
+            </article>
+          
+            <article class="trust-card reveal delay-2">
+              <small>Guidance</small>
+              <h3>Easy skin consult path</h3>
+              <p>Visitors can understand how to request a consultation.</p>
+            </article>
+          
         </div>
       </div>
     </section>
@@ -374,33 +416,33 @@
     <section class="content">
       <div class="container">
         <div class="section-head reveal">
-          <p>Patient journey</p>
-          <h2>A calm route from first inquiry to next steps.</h2>
+          <p>Skin Journey</p>
+          <h2>A calm route from skin concern to consultation.</h2>
         </div>
         <div class="journey-grid">
           
             <article class="journey-card reveal delay-0">
               <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div><span class="step-number">01</span></div>
               <h3>Request consult</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the dermatology inquiry experience, designed for clarity and comfort.</p>
             </article>
           
             <article class="journey-card reveal delay-1">
-              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div><span class="step-number">02</span></div>
+              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div><span class="step-number">02</span></div>
               <h3>Share skin concern</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the dermatology inquiry experience, designed for clarity and comfort.</p>
             </article>
           
             <article class="journey-card reveal delay-2">
-              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div><span class="step-number">03</span></div>
+              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><span class="step-number">03</span></div>
               <h3>Visit the clinic</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the dermatology inquiry experience, designed for clarity and comfort.</p>
             </article>
           
             <article class="journey-card reveal delay-3">
-              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div><span class="step-number">04</span></div>
+              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 0 1 12 6a5 5 0 0 1 7.5 6.6z"/><path d="M3 12h4l2-4 3 8 2-4h7"/></svg></div><span class="step-number">04</span></div>
               <h3>Receive guidance</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the dermatology inquiry experience, designed for clarity and comfort.</p>
             </article>
           
         </div>
@@ -412,12 +454,13 @@
         <div class="cta reveal">
           <div class="cta-grid">
             <div>
-              <h2>Ready to preview this premium healthcare concept?</h2>
-              <p>This static demo uses the provided lead data for GEETHANJANAA AYURVEDA and keeps the experience clearly marked as an unofficial sample.</p>
+              <span class="cta-kicker">Dermatology contact</span>
+              <h2>Preview a premium dermatology inquiry flow.</h2>
+              <p>This static demo uses the provided lead data for GEETHANJANAA AYURVEDA and keeps the experience clearly marked as an unofficial sample concept.</p>
             </div>
             <div class="contact-card">
-              <a href="tel:+919508655628">Call +919508655628</a>
-              <a href="https://wa.me/919508655628">WhatsApp chat</a>
+              <a href="tel:+919508655628">Book skin consultation</a>
+              <a href="https://wa.me/919508655628">WhatsApp skin clinic</a>
             </div>
           </div>
         </div>
@@ -428,7 +471,7 @@
   <footer>
     <div class="footer-inner">
       <span>GEETHANJANAA AYURVEDA — Unofficial sample concept — created for design preview only.</span>
-      <span>Thiruvananthapuram · Managing Partner &amp; Ayurvedic Physician (Cosmetology &amp; Wellness Specialist)</span>
+      <span>Thiruvananthapuram · Managing Partner &amp; Ayurvedic Physician (Cosmetology &amp; Wellness Specialist) · Dermatology</span>
     </div>
   </footer>
 </body>

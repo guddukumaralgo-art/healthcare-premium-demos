@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Atkos Enterprise | Premium Healthcare Demo</title>
+  <title>Atkos Enterprise | Hospital Demo</title>
   <style>
     :root {
-      --accent: #1d4ed8;
-      --accent-2: #60a5fa;
-      --accent-soft: #eff6ff;
-      --accent-glow: rgba(147, 197, 253, 0.46);
+      --accent: #0f766e;
+      --accent-2: #1e3a8a;
+      --accent-3: #14b8a6;
+      --accent-soft: #f0fdfa;
+      --accent-glow: rgba(45, 212, 191, 0.38);
+      --page-bg: linear-gradient(180deg, #fbfefd 0%, #f5fbff 46%, #ffffff 100%);
+      --hero-bg: radial-gradient(circle at 7% 12%, rgba(45,212,191,.34), transparent 28rem), radial-gradient(circle at 90% 10%, rgba(30,58,138,.2), transparent 25rem), linear-gradient(135deg, #f8fafc 0%, #f0fdfa 42%, #eff6ff 100%);
+      --section-bg: linear-gradient(180deg, #ffffff 0%, #f0fdfa 58%, #eff6ff 100%);
       --ink: #0f172a;
       --muted: #64748b;
       --line: rgba(226, 232, 240, 0.9);
@@ -20,22 +24,19 @@
       margin: 0;
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--ink);
-      background:
-        radial-gradient(circle at 0 0, var(--accent-glow), transparent 26rem),
-        radial-gradient(circle at 88% 8%, rgba(216, 180, 254, 0.24), transparent 24rem),
-        linear-gradient(180deg, #fbfefd 0%, #f8fcff 48%, #fbfefd 100%);
+      background: var(--page-bg);
       text-rendering: geometricPrecision;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     .disclaimer {
-      border-bottom: 1px solid #cffafe;
-      background: linear-gradient(90deg, #ecfeff, #fff, #faf5ff);
+      border-bottom: 1px solid rgba(226,232,240,.9);
+      background: linear-gradient(90deg, #ffffff, var(--accent-soft), #ffffff);
       padding: 12px 16px;
       text-align: center;
       color: #475569;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
     }
     .nav-wrap { position: sticky; top: 0; z-index: 20; padding: 12px; }
     .nav {
@@ -47,13 +48,13 @@
       gap: 16px;
       border: 1px solid rgba(255,255,255,.86);
       border-radius: 999px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
       padding: 12px 14px;
       box-shadow: 0 18px 55px rgba(15,23,42,.08);
       backdrop-filter: blur(22px);
     }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; min-width: 0; }
-    .logo-mark, .brand-icon, .icon-box {
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 780; min-width: 0; }
+    .logo-mark, .icon-box {
       width: 44px; height: 44px; border-radius: 999px;
       display: grid; place-items: center;
       color: var(--accent);
@@ -68,18 +69,19 @@
     .nav-links { display: none; gap: 26px; border: 1px solid #f1f5f9; background: rgba(248,250,252,.74); border-radius: 999px; padding: 12px 18px; color: #64748b; font-size: 14px; font-weight: 650; }
     .nav-cta, .btn-primary, .btn-secondary {
       display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      border-radius: 999px; font-size: 14px; font-weight: 750;
-      transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+      border-radius: 999px; font-size: 14px; font-weight: 780;
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease, border-color .28s ease;
     }
     .nav-cta { background: #0f172a; color: #fff; padding: 12px 16px; box-shadow: 0 16px 38px rgba(15,23,42,.15); }
     .btn-primary { background: #0f172a; color: #fff; padding: 16px 28px; box-shadow: 0 30px 100px rgba(15,23,42,.13); }
     .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.9); color: #1f2937; padding: 16px 28px; box-shadow: 0 18px 55px rgba(15,23,42,.08); }
     .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-4px); }
     .btn-primary:hover, .nav-cta:hover { background: var(--accent); }
-    .hero { position: relative; overflow: hidden; padding: 76px 16px 112px; }
+    .btn-secondary:hover { border-color: var(--accent-soft); background: var(--accent-soft); }
+    .hero { position: relative; overflow: hidden; padding: 76px 16px 122px; background: var(--hero-bg); }
     .blob { position: absolute; border-radius: 38% 62% 65% 35% / 42% 44% 56% 58%; filter: blur(78px); pointer-events: none; transform: rotate(-10deg); }
     .blob-a { left: -120px; top: 90px; width: 450px; height: 320px; background: var(--accent-glow); }
-    .blob-b { right: -140px; top: 120px; width: 470px; height: 360px; background: rgba(216, 180, 254, .34); }
+    .blob-b { right: -140px; top: 120px; width: 470px; height: 360px; background: color-mix(in srgb, var(--accent-2) 18%, transparent); }
     .container { max-width: 1180px; margin: 0 auto; position: relative; }
     .hero-grid { display: grid; gap: 64px; align-items: center; }
     .eyebrow {
@@ -91,7 +93,7 @@
       color: var(--accent);
       box-shadow: 0 18px 55px rgba(15,23,42,.08);
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 850;
       letter-spacing: .16em;
       text-transform: uppercase;
     }
@@ -101,11 +103,11 @@
       max-width: 790px;
       font-size: clamp(46px, 8vw, 82px);
       line-height: .98;
-      font-weight: 760;
+      font-weight: 780;
       letter-spacing: 0;
     }
     .gradient-text {
-      background: linear-gradient(90deg, var(--accent), var(--accent-2), #7c3aed);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -133,7 +135,7 @@
     }
     .badge-dot { width: 22px; height: 22px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: 0 0 auto; }
     .visual-shell { position: relative; }
-    .visual-glow { position: absolute; inset: -24px; border-radius: 40px; background: linear-gradient(135deg, var(--accent-glow), rgba(255,255,255,.2), rgba(216,180,254,.3)); filter: blur(28px); }
+    .visual-glow { position: absolute; inset: -24px; border-radius: 40px; background: linear-gradient(135deg, var(--accent-glow), rgba(255,255,255,.2), color-mix(in srgb, var(--accent-2) 22%, transparent)); filter: blur(28px); }
     .visual-card {
       position: relative; overflow: hidden;
       border: 2px solid #fff;
@@ -142,8 +144,23 @@
       padding: 8px;
       box-shadow: 0 30px 100px rgba(15,23,42,.13);
     }
+    .visual-topline {
+      position: absolute; z-index: 2; left: 24px; right: 24px; top: 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .visual-topline > span:first-child {
+      border-radius: 999px; background: rgba(255,255,255,.84); color: var(--accent);
+      padding: 9px 13px; font-size: 13px; font-weight: 850; box-shadow: 0 18px 55px rgba(15,23,42,.08);
+      backdrop-filter: blur(16px);
+    }
+    .visual-icon, .visual-strip span {
+      width: 44px; height: 44px; border-radius: 999px; display: grid; place-items: center;
+      color: var(--accent); background: rgba(255,255,255,.86); box-shadow: 0 18px 55px rgba(15,23,42,.08);
+      backdrop-filter: blur(16px);
+    }
     .visual-image-wrap { aspect-ratio: 4 / 3; border-radius: 25px; overflow: hidden; }
     .visual-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .visual-strip { position: absolute; left: 24px; bottom: 24px; display: flex; gap: 10px; }
     .appointment {
       position: relative;
       margin-top: 16px;
@@ -157,30 +174,32 @@
     .appointment-row { display: flex; align-items: center; gap: 16px; }
     .doctor-avatar { width: 58px; height: 58px; border-radius: 999px; flex: 0 0 auto; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent-soft), #fff); color: var(--accent); font-weight: 850; }
     .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; }
-    .appointment small { color: var(--accent); font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .appointment small { color: var(--accent); font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
     .appointment h2 { margin: 8px 0 0; font-size: 26px; }
     .appointment p { margin: 8px 0 0; color: var(--muted); line-height: 1.6; }
-    section.content { padding: 112px 16px; }
+    section.content { padding: 118px 16px; }
     .section-head { max-width: 760px; margin-bottom: 64px; }
     .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
-    .section-head p:first-child { color: var(--accent); font-size: 13px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
+    .section-head p:first-child, .cta-kicker { color: var(--accent); font-size: 13px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; }
     .section-head h2 { margin: 18px 0 0; font-size: clamp(36px, 5vw, 52px); line-height: 1.06; letter-spacing: 0; }
     .section-head .copy { margin: 22px 0 0; color: var(--muted); line-height: 1.8; font-size: 16px; }
     .cards { display: grid; gap: 22px; }
     .service-card, .trust-card, .journey-card {
       border: 1px solid #f1f5f9;
       border-radius: 26px;
-      background: #fff;
+      background: rgba(255,255,255,.92);
       padding: 28px;
       box-shadow: 0 18px 55px rgba(15,23,42,.08);
       transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
     }
+    .service-card { min-height: 282px; position: relative; overflow: hidden; }
+    .service-card::before { content: ""; position: absolute; inset: 0 0 auto; height: 4px; background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3)); opacity: .9; }
     .service-card:hover { transform: translateY(-8px); border-color: var(--accent-soft); box-shadow: 0 30px 100px rgba(15,23,42,.13); }
     .service-icon { width: 56px; height: 56px; border-radius: 18px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 28px; }
     .service-icon svg { width: 27px; height: 27px; }
     .service-card h3, .trust-card h3, .journey-card h3 { margin: 0; font-size: 21px; }
     .service-card p, .trust-card p, .journey-card p { color: var(--muted); line-height: 1.75; margin: 14px 0 0; }
-    .about-band { background: linear-gradient(180deg, #fff, var(--accent-soft)); }
+    .about-band { background: var(--section-bg); }
     .about-box {
       border: 1px solid rgba(255,255,255,.85);
       border-radius: 32px;
@@ -199,17 +218,18 @@
     .cta {
       position: relative; overflow: hidden;
       border-radius: 32px;
-      background: #0f172a;
+      background: linear-gradient(135deg, #0f172a, color-mix(in srgb, var(--accent-2) 28%, #0f172a));
       color: #fff;
       padding: 36px;
       box-shadow: 0 30px 100px rgba(15,23,42,.13);
     }
     .cta::before { content: ""; position: absolute; right: -80px; top: -80px; width: 300px; height: 300px; border-radius: 999px; background: var(--accent); opacity: .22; filter: blur(50px); }
     .cta-grid { position: relative; display: grid; gap: 34px; align-items: center; }
-    .cta h2 { margin: 0; font-size: clamp(36px, 5vw, 52px); line-height: 1.08; }
+    .cta h2 { margin: 14px 0 0; font-size: clamp(36px, 5vw, 52px); line-height: 1.08; }
     .cta p { color: rgba(255,255,255,.72); line-height: 1.8; }
     .contact-card { display: grid; gap: 14px; border: 1px solid rgba(255,255,255,.1); border-radius: 24px; background: rgba(255,255,255,.1); padding: 18px; backdrop-filter: blur(18px); }
-    .contact-card a { border-radius: 999px; background: #fff; color: var(--ink); padding: 16px 20px; font-weight: 750; }
+    .contact-card a { border-radius: 999px; background: #fff; color: var(--ink); padding: 16px 20px; font-weight: 780; text-align: center; transition: transform .25s ease; }
+    .contact-card a:hover { transform: translateY(-3px); }
     footer { padding: 40px 16px; color: #64748b; border-top: 1px solid #f1f5f9; background: #fff; }
     .footer-inner { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
     .reveal { opacity: 0; transform: translateY(22px); animation: reveal .75s ease forwards; }
@@ -268,32 +288,37 @@
       <div class="blob blob-b"></div>
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg> Shimla Healthcare Center</div>
-          <h1>Trusted Healthcare Clinic in Shimla <span class="gradient-text">for modern patient outreach.</span></h1>
+          <div class="eyebrow"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg> Multi-specialty care concept · Shimla</div>
+          <h1>Trusted Healthcare Clinic in Shimla <span class="gradient-text">clearer care navigation.</span></h1>
           <p class="subhead">Personalized healthcare support for families and everyday medical needs.</p>
           <div class="actions">
-            <a class="btn-primary" href="tel:+919508655628">Call now</a>
-            <a class="btn-secondary" href="https://wa.me/919508655628">WhatsApp chat</a>
+            <a class="btn-primary" href="tel:+919508655628">Book appointment</a>
+            <a class="btn-secondary" href="https://wa.me/919508655628">WhatsApp care desk</a>
           </div>
           <div class="badges">
-            <div class="badge delay-1"><span class="badge-dot">✓</span> Clear appointment path</div>
-            <div class="badge delay-2"><span class="badge-dot">✓</span> Calm premium design</div>
-            <div class="badge delay-3"><span class="badge-dot">✓</span> Sample-safe copy</div>
+            <div class="badge delay-1"><span class="badge-dot">✓</span> Multi-specialty structure</div><div class="badge delay-2"><span class="badge-dot">✓</span> Emergency-ready information area</div><div class="badge delay-3"><span class="badge-dot">✓</span> Trusted care navigation</div>
           </div>
         </div>
 
         <div class="visual-shell reveal delay-2">
           <div class="visual-glow"></div>
           <div class="visual-card">
+            <div class="visual-topline">
+              <span>Hospital preview</span>
+              <span class="visual-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></span>
+            </div>
             <div class="visual-image-wrap">
               <img src="https://media.licdn.com/dms/image/v2/D5616AQFdiHxFBA2ygg/profile-displaybackgroundimage-shrink_350_1400/B56ZrGpI0aJ8AY-/0/1764269265357?e=1778716800&amp;v=beta&amp;t=VkjyVPEJe4fyVubejUquB9EP-30rJ75wN_cdJT3p5PY" alt="Atkos Enterprise visual preview" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80';" />
+            </div>
+            <div class="visual-strip">
+              <span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 15a5 5 0 0 0 10 0v-3"/><circle cx="20" cy="10" r="2"/></svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17H6a2 2 0 1 1 0-4h4V6h7l4 5v6h-2"/><path d="M14 17h2M6 17h8M14 10h5M6 8h4M8 6v4"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg></span>
             </div>
           </div>
           <div class="appointment">
             <div class="appointment-row">
               <div class="doctor-avatar image-avatar"><img src="https://media.licdn.com/dms/image/v2/D5603AQE_s9Gy3kmxnA/profile-displayphoto-crop_800_800/B56Zlow1yEH8AI-/0/1758399259072?e=1778716800&amp;v=beta&amp;t=W84X9a4-_A1IaUHKA5Z38X5CeI0-LaP0uToAcUuzNMY" alt="Dr Bhawna Sokta profile" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80';" /></div>
               <div class="appointment-copy">
-                <small>Appointment</small>
+                <small>Book appointment</small>
                 <h2>Request a consult</h2>
                 <p>Dr Bhawna Sokta · Co-Founder &amp; CEO</p>
               </div>
@@ -306,34 +331,34 @@
     <section id="services" class="content">
       <div class="container">
         <div class="section-head reveal">
-          <p>Services</p>
-          <h2>Focused sections built around Co-Founder &amp; CEO.</h2>
-          <p class="copy">Service cards use the lead data while keeping the language clear, premium, and responsible.</p>
+          <p>Hospital Services</p>
+          <h2>Care sections shaped around Co-Founder &amp; CEO.</h2>
+          <p class="copy">These cards use the lead data first, then fall back to hospital-specific topics with careful sample-safe language.</p>
         </div>
         <div class="cards">
           
             <article class="service-card reveal delay-0">
               <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div>
               <h3>General Consultation</h3>
-              <p>Clear information and appointment guidance for general consultation inquiries.</p>
+              <p>A clear outpatient discovery section for appointment-led browsing.</p>
             </article>
           
             <article class="service-card reveal delay-1">
-              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 15a5 5 0 0 0 10 0v-3"/><circle cx="20" cy="10" r="2"/></svg></div>
               <h3>Preventive Care</h3>
-              <p>Clear information and appointment guidance for preventive care inquiries.</p>
+              <p>Structured urgent-contact information if provided by the business.</p>
             </article>
           
             <article class="service-card reveal delay-2">
-              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17H6a2 2 0 1 1 0-4h4V6h7l4 5v6h-2"/><path d="M14 17h2M6 17h8M14 10h5M6 8h4M8 6v4"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg></div>
               <h3>Health Checkups</h3>
-              <p>Clear information and appointment guidance for health checkups inquiries.</p>
+              <p>Careful framing for procedure-related inquiry pathways.</p>
             </article>
           
             <article class="service-card reveal delay-3">
-              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div>
+              <div class="service-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
               <h3>Follow-up Care</h3>
-              <p>Clear information and appointment guidance for follow-up care inquiries.</p>
+              <p>Easy navigation for specialist consultation interest.</p>
             </article>
           
         </div>
@@ -343,7 +368,7 @@
     <section id="about" class="content about-band">
       <div class="container">
         <div class="section-head reveal">
-          <p>About</p>
+          <p>About Hospital</p>
           <h2>Atkos Enterprise in Shimla.</h2>
         </div>
         <div class="about-box reveal delay-1">
@@ -351,6 +376,7 @@
           <div class="about-meta">
             <span>Shimla, Himachal Pradesh, India</span>
             <span>hello@atkosenterpriseshimla.demo</span>
+            <span>clinic → Hospital</span>
           </div>
         </div>
       </div>
@@ -361,12 +387,28 @@
         <div class="section-head center reveal">
           <p>Trust cues</p>
           <h2>A clear structure for healthcare decisions.</h2>
-          <p class="copy">The page uses navigation, restraint, and visible contact paths instead of fake rankings or awards.</p>
+          <p class="copy">The navy and teal system uses navigation, restraint, and visible contact paths instead of fake rankings or awards.</p>
         </div>
         <div class="trust-grid">
-          <article class="trust-card reveal"><small>Clarity</small><h3>Simple next steps</h3><p>Visitors can quickly understand how to connect and what the first action is.</p></article>
-          <article class="trust-card reveal delay-1"><small>Restraint</small><h3>No fake claims</h3><p>The page avoids unverifiable awards, guarantees, ratings, and outcome promises.</p></article>
-          <article class="trust-card reveal delay-2"><small>Access</small><h3>Mobile-first contact</h3><p>Call and WhatsApp actions are easy to use across mobile and desktop layouts.</p></article>
+          
+            <article class="trust-card reveal delay-0">
+              <small>Navigation</small>
+              <h3>Department clarity</h3>
+              <p>Visitors can orient themselves quickly across care areas.</p>
+            </article>
+          
+            <article class="trust-card reveal delay-1">
+              <small>Access</small>
+              <h3>Prominent contact paths</h3>
+              <p>Key inquiry options remain easy to find.</p>
+            </article>
+          
+            <article class="trust-card reveal delay-2">
+              <small>Restraint</small>
+              <h3>No invented authority</h3>
+              <p>The page avoids unverified awards, ratings, and claims.</p>
+            </article>
+          
         </div>
       </div>
     </section>
@@ -374,33 +416,33 @@
     <section class="content">
       <div class="container">
         <div class="section-head reveal">
-          <p>Patient journey</p>
-          <h2>A calm route from first inquiry to next steps.</h2>
+          <p>Care Journey</p>
+          <h2>A clear route from healthcare inquiry to visit planning.</h2>
         </div>
         <div class="journey-grid">
           
             <article class="journey-card reveal delay-0">
               <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div><span class="step-number">01</span></div>
               <h3>Explore care</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the hospital inquiry experience, designed for clarity and comfort.</p>
             </article>
           
             <article class="journey-card reveal delay-1">
-              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div><span class="step-number">02</span></div>
+              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 15a5 5 0 0 0 10 0v-3"/><circle cx="20" cy="10" r="2"/></svg></div><span class="step-number">02</span></div>
               <h3>Contact desk</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the hospital inquiry experience, designed for clarity and comfort.</p>
             </article>
           
             <article class="journey-card reveal delay-2">
-              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div><span class="step-number">03</span></div>
+              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 17H6a2 2 0 1 1 0-4h4V6h7l4 5v6h-2"/><path d="M14 17h2M6 17h8M14 10h5M6 8h4M8 6v4"/><circle cx="6" cy="17" r="2"/><circle cx="18" cy="17" r="2"/></svg></div><span class="step-number">03</span></div>
               <h3>Plan visit</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the hospital inquiry experience, designed for clarity and comfort.</p>
             </article>
           
             <article class="journey-card reveal delay-3">
-              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16"/><path d="M9 21v-6h6v6"/><path d="M12 7v5M9.5 9.5h5"/></svg></div><span class="step-number">04</span></div>
+              <div class="journey-top"><div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div><span class="step-number">04</span></div>
               <h3>Follow guidance</h3>
-              <p>A simple stage in the patient inquiry experience, designed for clarity and comfort.</p>
+              <p>A simple stage in the hospital inquiry experience, designed for clarity and comfort.</p>
             </article>
           
         </div>
@@ -412,12 +454,13 @@
         <div class="cta reveal">
           <div class="cta-grid">
             <div>
-              <h2>Ready to preview this premium healthcare concept?</h2>
-              <p>This static demo uses the provided lead data for Atkos Enterprise and keeps the experience clearly marked as an unofficial sample.</p>
+              <span class="cta-kicker">Hospital contact</span>
+              <h2>Preview a premium hospital inquiry experience.</h2>
+              <p>This static demo uses the provided lead data for Atkos Enterprise and keeps the experience clearly marked as an unofficial sample concept.</p>
             </div>
             <div class="contact-card">
-              <a href="tel:+919508655628">Call +919508655628</a>
-              <a href="https://wa.me/919508655628">WhatsApp chat</a>
+              <a href="tel:+919508655628">Book appointment</a>
+              <a href="https://wa.me/919508655628">WhatsApp care desk</a>
             </div>
           </div>
         </div>
@@ -428,7 +471,7 @@
   <footer>
     <div class="footer-inner">
       <span>Atkos Enterprise — Unofficial sample concept — created for design preview only.</span>
-      <span>Shimla · Co-Founder &amp; CEO</span>
+      <span>Shimla · Co-Founder &amp; CEO · Hospital</span>
     </div>
   </footer>
 </body>

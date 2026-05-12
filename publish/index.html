@@ -23,18 +23,24 @@
       text-align: center;
       color: #475569;
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 650;
     }
     .wrap { max-width: 1180px; margin: 0 auto; padding: 72px 16px 96px; }
-    .hero { max-width: 820px; margin-bottom: 46px; }
+    .hero { max-width: 860px; margin-bottom: 34px; }
     .eyebrow { display: inline-flex; border: 1px solid #e0f2fe; border-radius: 999px; background: rgba(255,255,255,.8); padding: 10px 15px; color: #0e7490; font-size: 12px; font-weight: 850; letter-spacing: .16em; text-transform: uppercase; box-shadow: 0 18px 55px rgba(15,23,42,.08); }
     h1 { margin: 24px 0 0; font-size: clamp(44px, 8vw, 78px); line-height: .98; letter-spacing: 0; }
-    .hero p { margin: 24px 0 0; max-width: 680px; color: #64748b; font-size: 19px; line-height: 1.75; }
+    .hero p { margin: 24px 0 0; max-width: 700px; color: #64748b; font-size: 19px; line-height: 1.75; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 30px; }
+    .filter { border: 1px solid #e2e8f0; border-radius: 999px; background: rgba(255,255,255,.86); color: #475569; padding: 11px 15px; font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; box-shadow: 0 12px 30px rgba(15,23,42,.06); transition: transform .22s ease, background .22s ease, color .22s ease; }
+    .filter:hover { transform: translateY(-2px); }
+    .filter.is-active { background: #0f172a; color: #fff; border-color: #0f172a; }
     .grid { display: grid; gap: 18px; }
     .card { border: 1px solid #f1f5f9; border-radius: 26px; background: rgba(255,255,255,.86); padding: 24px; box-shadow: 0 18px 55px rgba(15,23,42,.08); transition: transform .25s ease, box-shadow .25s ease; }
+    .card[hidden] { display: none; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 30px 100px rgba(15,23,42,.12); }
     .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
     .pill { border-radius: 999px; background: #ecfeff; color: #0e7490; padding: 7px 10px; font-size: 12px; font-weight: 800; text-transform: capitalize; }
+    .pill.type { background: #f1f5f9; color: #334155; }
     h2 { margin: 0; font-size: 22px; line-height: 1.25; }
     .card p { margin: 10px 0 0; color: #64748b; line-height: 1.65; }
     .button { display: inline-flex; margin-top: 22px; border-radius: 999px; background: #0f172a; color: #fff; padding: 13px 18px; font-size: 14px; font-weight: 800; }
@@ -48,13 +54,17 @@
   <main class="wrap">
     <section class="hero">
       <div class="eyebrow">batch_1 demos</div>
-      <h1>Premium healthcare demo websites for LinkedIn outreach.</h1>
-      <p>Browse every ready demo generated from <code>src/data/leads.csv</code>. Each page is an unofficial sample concept created for design preview only.</p>
+      <h1>Premium healthcare demo websites by business type.</h1>
+      <p>Browse every ready demo generated from <code>src/data/leads.csv</code>. Each page uses a template-specific visual system and remains an unofficial sample concept.</p>
     </section>
+    <div class="filters" aria-label="Filter demos by business type">
+      <button class="filter is-active" type="button" data-filter="all">All</button><button class="filter" type="button" data-filter="dentist">Dentist</button><button class="filter" type="button" data-filter="dermatologist">Dermatology</button><button class="filter" type="button" data-filter="physiotherapy">Physiotherapy</button><button class="filter" type="button" data-filter="diagnostic-center">Diagnostic</button><button class="filter" type="button" data-filter="hospital">Hospital</button><button class="filter" type="button" data-filter="ayurveda">Ayurveda</button>
+    </div>
     <section class="grid" aria-label="Generated demo websites">
       
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Ahmedabad</span>
           </div>
@@ -63,9 +73,9 @@
           <p>Ahmedabad, Gujarat, India</p>
           <a class="button" href="/healthcare-premium-demos/tactus-lifesciences-llc-ahmedabad/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dentist">
           <div class="meta">
+            <span class="pill type">Dentist</span>
             <span class="pill">dentist</span>
             <span class="pill">Srinagar</span>
           </div>
@@ -74,9 +84,9 @@
           <p>Srinagar, Jammu &amp; Kashmir, India</p>
           <a class="button" href="/healthcare-premium-demos/zaytoun-clinics-srinagar/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Pune District</span>
           </div>
@@ -85,9 +95,9 @@
           <p>Pune District, Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/reborn-skin-international-clinics-pvt-ltd-pune-district/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Pune</span>
           </div>
@@ -96,9 +106,9 @@
           <p>Pune, Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/define-aesthetics-pune/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Chennai</span>
           </div>
@@ -107,9 +117,9 @@
           <p>Chennai, Tamil Nadu, India</p>
           <a class="button" href="/healthcare-premium-demos/medagg-ventures-llp-chennai/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">hospital</span>
             <span class="pill">Hyderabad</span>
           </div>
@@ -118,9 +128,9 @@
           <p>Hyderabad, Telangana, India</p>
           <a class="button" href="/healthcare-premium-demos/kims-hospital-kompally-hyderabad-hyderabad/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="physiotherapy">
           <div class="meta">
+            <span class="pill type">Physiotherapy</span>
             <span class="pill">physiotherapy</span>
             <span class="pill">Tiruchengodu</span>
           </div>
@@ -129,9 +139,9 @@
           <p>Tiruchengodu, Tamil Nadu, India</p>
           <a class="button" href="/healthcare-premium-demos/swamy-vivekanandha-physiotherapy-colege-tiruchengodu/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">India</span>
           </div>
@@ -140,9 +150,9 @@
           <p>India</p>
           <a class="button" href="/healthcare-premium-demos/easa-college-of-engineering-and-technology-india/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">South Delhi</span>
           </div>
@@ -151,9 +161,9 @@
           <p>South Delhi, Delhi, India</p>
           <a class="button" href="/healthcare-premium-demos/nuts-for-us-south-delhi/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Raipur</span>
           </div>
@@ -162,9 +172,9 @@
           <p>Raipur, Chhattisgarh, India</p>
           <a class="button" href="/healthcare-premium-demos/dr-ujjwala-s-skin-clinic-raipur/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Maharashtra</span>
           </div>
@@ -173,9 +183,9 @@
           <p>Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/fiona-aesthetics-india-maharashtra/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">New Delhi</span>
           </div>
@@ -184,9 +194,9 @@
           <p>New Delhi, Delhi, India</p>
           <a class="button" href="/healthcare-premium-demos/touchlyfe-new-delhi/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Greater Indore Area</span>
           </div>
@@ -195,9 +205,9 @@
           <p>Greater Indore Area</p>
           <a class="button" href="/healthcare-premium-demos/dr-b-p-mishra-s-homeoheal-greater-indore-area/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">India</span>
           </div>
@@ -206,9 +216,9 @@
           <p>India</p>
           <a class="button" href="/healthcare-premium-demos/biovate-consultancy-india/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Kochi</span>
           </div>
@@ -217,9 +227,9 @@
           <p>Kochi, Kerala, India</p>
           <a class="button" href="/healthcare-premium-demos/akore-formulations-private-limited-kochi/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Chandigarh</span>
           </div>
@@ -228,9 +238,9 @@
           <p>Chandigarh, India</p>
           <a class="button" href="/healthcare-premium-demos/vibcare-healthcare-chandigarh/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Bengaluru</span>
           </div>
@@ -239,9 +249,9 @@
           <p>Bengaluru, Karnataka, India</p>
           <a class="button" href="/healthcare-premium-demos/amrita-homeopathy-bengaluru/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Ernakulam</span>
           </div>
@@ -250,9 +260,9 @@
           <p>Ernakulam, Kerala, India</p>
           <a class="button" href="/healthcare-premium-demos/linktech-consultancy-services-pvt-ltd-ernakulam/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="physiotherapy">
           <div class="meta">
+            <span class="pill type">Physiotherapy</span>
             <span class="pill">physiotherapy</span>
             <span class="pill">Delhi</span>
           </div>
@@ -261,9 +271,9 @@
           <p>Delhi, India</p>
           <a class="button" href="/healthcare-premium-demos/physiostep-delhi/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Mumbai</span>
           </div>
@@ -272,9 +282,9 @@
           <p>Mumbai, Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/tata-institute-of-social-sciences-mumbai/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Bengaluru</span>
           </div>
@@ -283,9 +293,9 @@
           <p>Bengaluru, Karnataka, India</p>
           <a class="button" href="/healthcare-premium-demos/care-by-cadabams-bengaluru/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Delhi</span>
           </div>
@@ -294,9 +304,9 @@
           <p>Delhi, India</p>
           <a class="button" href="/healthcare-premium-demos/asia-pacific-arthroplasty-society-delhi/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dentist">
           <div class="meta">
+            <span class="pill type">Dentist</span>
             <span class="pill">dentist</span>
             <span class="pill">Mumbai</span>
           </div>
@@ -305,9 +315,9 @@
           <p>Mumbai, Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/richsmile-design-mumbai/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="diagnostic-center">
           <div class="meta">
+            <span class="pill type">Diagnostic</span>
             <span class="pill">diagnostic-center</span>
             <span class="pill">Hyderabad</span>
           </div>
@@ -316,9 +326,9 @@
           <p>Hyderabad, Telangana, India</p>
           <a class="button" href="/healthcare-premium-demos/startoon-labs-hyderabad/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Bengaluru</span>
           </div>
@@ -327,9 +337,9 @@
           <p>Bengaluru, Karnataka, India</p>
           <a class="button" href="/healthcare-premium-demos/avatarluxe-aestheticians-bengaluru/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Pune Division</span>
           </div>
@@ -338,9 +348,9 @@
           <p>Pune Division, Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/my-sensory-park-pune-division/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Mandi</span>
           </div>
@@ -349,9 +359,9 @@
           <p>Mandi, Himachal Pradesh, India</p>
           <a class="button" href="/healthcare-premium-demos/stalwarts-of-dermatology-congress-mandi/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="diagnostic-center">
           <div class="meta">
+            <span class="pill type">Diagnostic</span>
             <span class="pill">diagnostic-center</span>
             <span class="pill">Bengaluru</span>
           </div>
@@ -360,9 +370,9 @@
           <p>Bengaluru, Karnataka, India</p>
           <a class="button" href="/healthcare-premium-demos/analytix-bengaluru/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">hospital</span>
             <span class="pill">Chennai</span>
           </div>
@@ -371,9 +381,9 @@
           <p>Chennai, Tamil Nadu, India</p>
           <a class="button" href="/healthcare-premium-demos/research-articulators-chennai/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Surat</span>
           </div>
@@ -382,9 +392,9 @@
           <p>Surat, Gujarat, India</p>
           <a class="button" href="/healthcare-premium-demos/rainbow-child-development-center-surat/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Hyderabad</span>
           </div>
@@ -393,9 +403,9 @@
           <p>Hyderabad, Telangana, India</p>
           <a class="button" href="/healthcare-premium-demos/giosun-healthcare-private-limited-hyderabad/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Gurugram</span>
           </div>
@@ -404,9 +414,9 @@
           <p>Gurugram, Haryana, India</p>
           <a class="button" href="/healthcare-premium-demos/avya-skin-clinic-gurugram/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Pune/Pimpri-Chinchwad Area</span>
           </div>
@@ -415,9 +425,9 @@
           <p>Pune/Pimpri-Chinchwad Area</p>
           <a class="button" href="/healthcare-premium-demos/ivy-skin-clinic-india-pune-pimpri-chinchwad-area/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Thiruvananthapuram</span>
           </div>
@@ -426,9 +436,9 @@
           <p>Thiruvananthapuram, Kerala, India</p>
           <a class="button" href="/healthcare-premium-demos/geethanjanaa-ayurveda-thiruvananthapuram/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Hyderabad</span>
           </div>
@@ -437,9 +447,9 @@
           <p>Hyderabad, Telangana, India</p>
           <a class="button" href="/healthcare-premium-demos/zennara-clinics-hyderabad/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Greater Hyderabad Area</span>
           </div>
@@ -448,9 +458,9 @@
           <p>Greater Hyderabad Area</p>
           <a class="button" href="/healthcare-premium-demos/pinks-n-bloos-greater-hyderabad-area/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Mumbai</span>
           </div>
@@ -459,9 +469,9 @@
           <p>Mumbai, Maharashtra, India</p>
           <a class="button" href="/healthcare-premium-demos/arya-pharma-south-africa-mumbai/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Ernakulam</span>
           </div>
@@ -470,9 +480,9 @@
           <p>Ernakulam, Kerala, India</p>
           <a class="button" href="/healthcare-premium-demos/solvemyhealth-ernakulam/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="dermatologist">
           <div class="meta">
+            <span class="pill type">Dermatology</span>
             <span class="pill">dermatologist</span>
             <span class="pill">Bengaluru</span>
           </div>
@@ -481,9 +491,9 @@
           <p>Bengaluru, Karnataka, India</p>
           <a class="button" href="/healthcare-premium-demos/dermaglo-laser-skin-clinic-india-bengaluru/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="ayurveda">
           <div class="meta">
+            <span class="pill type">Ayurveda</span>
             <span class="pill">ayurveda</span>
             <span class="pill">Bangalore Urban</span>
           </div>
@@ -492,9 +502,9 @@
           <p>Bangalore Urban, Karnataka, India</p>
           <a class="button" href="/healthcare-premium-demos/ayurveda-health-and-wellness-bangalore-urban/">Open demo</a>
         </article>
-      
-        <article class="card">
+        <article class="card" data-type="hospital">
           <div class="meta">
+            <span class="pill type">Hospital</span>
             <span class="pill">clinic</span>
             <span class="pill">Shimla</span>
           </div>
@@ -503,9 +513,21 @@
           <p>Shimla, Himachal Pradesh, India</p>
           <a class="button" href="/healthcare-premium-demos/atkos-enterprise-shimla/">Open demo</a>
         </article>
-      
     </section>
   </main>
   <footer>Unofficial sample concept — created for design preview only.</footer>
+  <script>
+    const buttons = document.querySelectorAll('[data-filter]');
+    const cards = document.querySelectorAll('[data-type]');
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        buttons.forEach((item) => item.classList.toggle('is-active', item === button));
+        cards.forEach((card) => {
+          card.hidden = filter !== 'all' && card.dataset.type !== filter;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
