@@ -27,6 +27,7 @@
       text-rendering: geometricPrecision;
     }
     a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
     .disclaimer {
       border-bottom: 1px solid #cffafe;
       background: linear-gradient(90deg, #ecfeff, #fff, #faf5ff);
@@ -52,15 +53,18 @@
       backdrop-filter: blur(22px);
     }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; min-width: 0; }
-    .brand-icon, .icon-box {
+    .logo-mark, .brand-icon, .icon-box {
       width: 44px; height: 44px; border-radius: 999px;
       display: grid; place-items: center;
       color: var(--accent);
       background: var(--accent-soft);
       flex: 0 0 auto;
+      overflow: hidden;
+      font-weight: 850;
     }
-    .brand-icon svg, .icon-box svg, .visual-icon svg { width: 22px; height: 22px; }
-    .brand span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .image-logo img { width: 100%; height: 100%; object-fit: cover; }
+    .icon-box svg, .visual-icon svg, .service-icon svg { width: 22px; height: 22px; }
+    .brand span:last-child { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .nav-links { display: none; gap: 26px; border: 1px solid #f1f5f9; background: rgba(248,250,252,.74); border-radius: 999px; padding: 12px 18px; color: #64748b; font-size: 14px; font-weight: 650; }
     .nav-cta, .btn-primary, .btn-secondary {
       display: inline-flex; align-items: center; justify-content: center; gap: 9px;
@@ -72,10 +76,7 @@
     .btn-secondary { border: 1px solid var(--line); background: rgba(255,255,255,.9); color: #1f2937; padding: 16px 28px; box-shadow: 0 18px 55px rgba(15,23,42,.08); }
     .nav-cta:hover, .btn-primary:hover, .btn-secondary:hover { transform: translateY(-4px); }
     .btn-primary:hover, .nav-cta:hover { background: var(--accent); }
-    .hero {
-      position: relative; overflow: hidden;
-      padding: 76px 16px 112px;
-    }
+    .hero { position: relative; overflow: hidden; padding: 76px 16px 112px; }
     .blob { position: absolute; border-radius: 38% 62% 65% 35% / 42% 44% 56% 58%; filter: blur(78px); pointer-events: none; transform: rotate(-10deg); }
     .blob-a { left: -120px; top: 90px; width: 450px; height: 320px; background: var(--accent-glow); }
     .blob-b { right: -140px; top: 120px; width: 470px; height: 360px; background: rgba(216, 180, 254, .34); }
@@ -94,6 +95,7 @@
       letter-spacing: .16em;
       text-transform: uppercase;
     }
+    .eyebrow svg { width: 17px; height: 17px; }
     h1 {
       margin: 30px 0 0;
       max-width: 790px;
@@ -140,14 +142,8 @@
       padding: 8px;
       box-shadow: 0 30px 100px rgba(15,23,42,.13);
     }
-    .visual-image-wrap, .visual-placeholder { aspect-ratio: 4 / 3; border-radius: 25px; overflow: hidden; }
-    .visual-image-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .visual-placeholder { background: linear-gradient(135deg, var(--accent-soft), #fff, #faf5ff); padding: 28px; display: flex; flex-direction: column; justify-content: space-between; }
-    .visual-top { display: flex; align-items: center; justify-content: space-between; }
-    .visual-top span { border-radius: 999px; background: rgba(255,255,255,.78); padding: 10px 14px; color: var(--accent); font-weight: 800; box-shadow: 0 12px 28px rgba(15,23,42,.08); }
-    .visual-icon { width: 56px; height: 56px; border-radius: 999px; background: #fff; color: var(--accent); display: grid; place-items: center; box-shadow: 0 18px 55px rgba(15,23,42,.08); }
-    .visual-lines { display: grid; gap: 14px; }
-    .visual-line { border: 1px solid rgba(255,255,255,.78); border-radius: 22px; background: rgba(255,255,255,.72); padding: 16px; color: #475569; font-weight: 700; box-shadow: 0 18px 55px rgba(15,23,42,.07); }
+    .visual-image-wrap { aspect-ratio: 4 / 3; border-radius: 25px; overflow: hidden; }
+    .visual-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
     .appointment {
       position: relative;
       margin-top: 16px;
@@ -158,7 +154,9 @@
       box-shadow: 0 30px 100px rgba(15,23,42,.13);
       backdrop-filter: blur(18px);
     }
-    .appointment-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+    .appointment-row { display: flex; align-items: center; gap: 16px; }
+    .doctor-avatar { width: 58px; height: 58px; border-radius: 999px; flex: 0 0 auto; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, var(--accent-soft), #fff); color: var(--accent); font-weight: 850; }
+    .doctor-avatar img { width: 100%; height: 100%; object-fit: cover; }
     .appointment small { color: var(--accent); font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
     .appointment h2 { margin: 8px 0 0; font-size: 26px; }
     .appointment p { margin: 8px 0 0; color: var(--muted); line-height: 1.6; }
@@ -179,6 +177,7 @@
     }
     .service-card:hover { transform: translateY(-8px); border-color: var(--accent-soft); box-shadow: 0 30px 100px rgba(15,23,42,.13); }
     .service-icon { width: 56px; height: 56px; border-radius: 18px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; margin-bottom: 28px; }
+    .service-icon svg { width: 27px; height: 27px; }
     .service-card h3, .trust-card h3, .journey-card h3 { margin: 0; font-size: 21px; }
     .service-card p, .trust-card p, .journey-card p { color: var(--muted); line-height: 1.75; margin: 14px 0 0; }
     .about-band { background: linear-gradient(180deg, #fff, var(--accent-soft)); }
@@ -191,6 +190,8 @@
       backdrop-filter: blur(18px);
     }
     .about-box p { color: var(--muted); line-height: 1.85; font-size: 17px; margin: 0; }
+    .about-meta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .about-meta span { border-radius: 999px; background: #fff; color: #475569; padding: 10px 14px; font-size: 14px; font-weight: 650; }
     .trust-grid, .journey-grid { display: grid; gap: 22px; }
     .trust-card small { color: var(--accent); text-transform: uppercase; letter-spacing: .14em; font-weight: 850; }
     .journey-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26px; }
@@ -229,15 +230,15 @@
     @media (min-width: 1024px) {
       .hero-grid { grid-template-columns: 1.02fr .98fr; }
       .cards { grid-template-columns: repeat(4, 1fr); }
-      .appointment { position: absolute; left: -42px; bottom: -36px; width: 360px; margin: 0; }
+      .appointment { position: absolute; left: -42px; bottom: -36px; width: 390px; margin: 0; }
       .cta-grid { grid-template-columns: 1fr 340px; }
     }
     @media (max-width: 639px) {
-      .brand span { max-width: 145px; }
+      .brand span:last-child { max-width: 145px; }
       .nav-cta span { display: none; }
       .hero { padding-top: 56px; }
       .btn-primary, .btn-secondary { width: 100%; }
-      .visual-image-wrap, .visual-placeholder { aspect-ratio: 4 / 3; }
+      .visual-image-wrap { aspect-ratio: 4 / 3; }
       section.content { padding: 92px 16px; }
       .cta { padding: 28px; }
     }
@@ -247,8 +248,8 @@
   <div class="disclaimer">Unofficial sample concept — created for design preview only.</div>
   <div class="nav-wrap">
     <nav class="nav">
-      <a class="brand" href="#top">
-        <span class="brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></span>
+      <a class="brand" href="/healthcare-premium-demos/">
+        <span class="logo-mark">DU</span>
         <span>Dr. Ujjwala&#39;s Skin Clinic</span>
       </a>
       <div class="nav-links">
@@ -284,18 +285,18 @@
         <div class="visual-shell reveal delay-2">
           <div class="visual-glow"></div>
           <div class="visual-card">
-      <div class="visual-image-wrap">
-        <img src="https://media.licdn.com/dms/image/v2/D4E16AQFzWITVTzhBuQ/profile-displaybackgroundimage-shrink_350_1400/B4EZo5taTGKMAY-/0/1761904805254?e=1778716800&amp;v=beta&amp;t=Nn-bwn7A4kKho3KQgme1Hawi_XoJJ_Nppf_-nxxs0vM" alt="Dr. Ujjwala&#39;s Skin Clinic visual preview" />
-      </div>
-    </div>
+            <div class="visual-image-wrap">
+              <img src="https://media.licdn.com/dms/image/v2/D4E16AQFzWITVTzhBuQ/profile-displaybackgroundimage-shrink_350_1400/B4EZo5taTGKMAY-/0/1761904805254?e=1778716800&amp;v=beta&amp;t=Nn-bwn7A4kKho3KQgme1Hawi_XoJJ_Nppf_-nxxs0vM" alt="Dr. Ujjwala&#39;s Skin Clinic visual preview" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1200&amp;q=80';" />
+            </div>
+          </div>
           <div class="appointment">
             <div class="appointment-row">
-              <div>
+              <div class="doctor-avatar image-avatar"><img src="https://media.licdn.com/dms/image/v2/D4E03AQHEuvTeebsTSA/profile-displayphoto-crop_800_800/B4EZk2Z9odKcAM-/0/1757554401663?e=1778716800&amp;v=beta&amp;t=HrTu1vKVFQuVTIhhew9y4TAFZ7FtAxMpyea0WJlfQow" alt="Dr. Ujjwala Verma profile" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1200&amp;q=80';" /></div>
+              <div class="appointment-copy">
                 <small>Appointment</small>
                 <h2>Request a consult</h2>
                 <p>Dr. Ujjwala Verma · Director</p>
               </div>
-              <div class="icon-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div>
             </div>
           </div>
         </div>
@@ -347,6 +348,10 @@
         </div>
         <div class="about-box reveal delay-1">
           <p>Dr. Ujjwala&#39;s Skin Clinic provides modern dermatology and aesthetic care with a premium patient experience.</p>
+          <div class="about-meta">
+            <span>Raipur, Chhattisgarh, India</span>
+            <span>hello@drujjwalasskinclinicraipur.demo</span>
+          </div>
         </div>
       </div>
     </section>
