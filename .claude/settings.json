@@ -8,7 +8,10 @@
       "Bash(curl -s -o /dev/null -w \"dentist: %{http_code}\\\\n\" http://localhost:3030/richsmile-design-mumbai/)",
       "Bash(curl -s -o /dev/null -w \"dermatologist: %{http_code}\\\\n\" http://localhost:3030/avya-skin-clinic-gurugram/)",
       "Bash(git commit -m ' *)",
-      "Bash(sort -k5 -rh)"
+      "Bash(sort -k5 -rh)",
+      "Bash(awk -F, 'NR>1 {print $NF}' src/data/leads.csv)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import csv; rows=list\\(csv.DictReader\\(open\\('src/data/leads.csv'\\)\\)\\); print\\(next\\(r['slug'] for r in rows if r['batch']=='batch_6' and r['status']=='ready'\\)\\)\")"
     ]
   }
 }

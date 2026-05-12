@@ -5,9 +5,10 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run generate:batch",
+    "build": "vite build && npm run generate:all",
     "preview": "vite preview",
-    "generate:batch": "node scripts/generateBatch.mjs batch_1"
+    "generate:batch": "node scripts/generateBatch.mjs",
+    "generate:all": "node scripts/generateBatch.mjs all"
   },
   "dependencies": {
     "framer-motion": "^11.0.0",

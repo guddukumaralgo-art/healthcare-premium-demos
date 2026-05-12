@@ -155,3 +155,12 @@ export function readyRowsForBatch(csvSource, batch = 'batch_1') {
     .map(normalizeDemoRow)
     .filter(row => row.slug);
 }
+
+const ALL_BATCHES = ['batch_1', 'batch_2', 'batch_3', 'batch_4', 'batch_5', 'batch_6'];
+
+export function readyRowsForAllBatches(csvSource) {
+  return parseCsv(csvSource)
+    .filter(row => row.status === 'ready' && ALL_BATCHES.includes(row.batch))
+    .map(normalizeDemoRow)
+    .filter(row => row.slug);
+}
