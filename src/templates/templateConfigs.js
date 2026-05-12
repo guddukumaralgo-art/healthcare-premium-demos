@@ -21,6 +21,50 @@ import {
   Sun,
 } from 'lucide-react';
 
+/* ── Shared demo-safe testimonials & FAQs ─────────────── */
+
+const sharedFaqs = (type) => [
+  {
+    q: `How do I book a ${type} appointment?`,
+    a: 'You can call or WhatsApp the clinic directly using the contact buttons visible across this page — it takes less than a minute.',
+  },
+  {
+    q: 'Is this the official clinic website?',
+    a: 'No. This is a sample design concept created for design preview and outreach demonstration purposes only.',
+  },
+  {
+    q: 'Does this page make medical claims?',
+    a: 'No. All copy is consultation-led and framed as a design preview. No outcomes, recovery times, or results are promised.',
+  },
+  {
+    q: 'Are the testimonials from real patients?',
+    a: 'No. They are clearly labeled sample demo personas used only to show how the testimonials section could look.',
+  },
+];
+
+const sharedTestimonials = [
+  {
+    author: 'Sample Visitor',
+    role: 'Demo persona — not a real review',
+    quote:
+      'The page makes it really easy to understand how to get in touch and what the first step might look like.',
+  },
+  {
+    author: 'Sample Patient',
+    role: 'Demo persona — not a real review',
+    quote:
+      'The design feels calm and professional, and the copy is honest without overstating what a consultation involves.',
+  },
+  {
+    author: 'Sample Family',
+    role: 'Demo persona — not a real review',
+    quote:
+      'Finding the call and WhatsApp options was immediate — they were always visible without feeling pushy.',
+  },
+];
+
+/* ── Template configs ──────────────────────────────────── */
+
 export const dentistConfig = {
   shortLabel: 'Dental',
   businessType: 'dentist',
@@ -31,22 +75,41 @@ export const dentistConfig = {
   miniLabel: 'Dental consult',
   appointmentTitle: 'Book dental consultation',
   visualLabel: 'Dental Studio',
-  colors: { accent: '#22d3ee', soft: '#ecfeff', strong: '#0e7490', glow: 'rgba(125, 211, 252, 0.48)' },
+  colors: {
+    accent: '#22d3ee',
+    soft: '#ecfeff',
+    strong: '#0e7490',
+    glow: 'rgba(125, 211, 252, 0.48)',
+  },
+  heroBg:
+    'linear-gradient(135deg, #ecfeff 0%, #e0f8ff 45%, #f8f9ff 100%)',
   heroTitlePrefix: 'Premium dental care concept for',
   heroTitleAccent: 'comfort-first smile journeys.',
-  heroCopy: clinic => `${clinic.clinicName} is framed as a polished dental design preview for ${clinic.city}, with bright spacing, simple contact paths, and reassuring visit guidance.`,
+  heroCopy: (clinic) =>
+    `${clinic.clinicName} is framed as a polished dental design preview for ${clinic.city}, with bright spacing, simple contact paths, and reassuring visit guidance.`,
   heroBadges: ['Smile-focused visit flow', 'Bright dental studio feel', 'Comfort-first guidance'],
-  visualCards: ['Dental implants and aligner sections', 'Root canal and whitening inquiry paths', 'Mobile-first call and WhatsApp actions'],
+  visualCards: [
+    'Dental implants and aligner sections',
+    'Root canal and whitening inquiry paths',
+  ],
   servicesTitle: 'Dental services presented with clarity and calm.',
-  servicesCopy: 'A refined structure for dental implants, aligners, root canal, whitening, and consultation topics without promising outcomes.',
+  servicesCopy:
+    'A refined structure for dental implants, aligners, root canal, whitening, and consultation topics without promising outcomes.',
   services: [
     { title: 'Dental implants', description: 'A premium consultation path for restorative dental inquiries.', icon: Smile },
     { title: 'Aligners', description: 'Clear guidance for smile alignment conversations.', icon: Sparkles },
     { title: 'Root canal', description: 'Measured copy for treatment planning without outcome promises.', icon: ShieldCheck },
     { title: 'Whitening', description: 'A polished way to present cosmetic dental interest.', icon: CalendarDays },
   ],
+  stats: [
+    { value: '4', label: 'Care steps' },
+    { value: '2', label: 'Contact options' },
+    { value: '6+', label: 'Dental topics' },
+    { value: '100%', label: 'Mobile-ready' },
+  ],
   trustTitle: 'Dental trust built through clarity and comfort.',
-  trustCopy: 'Trust cues describe the page experience itself and avoid ratings, outcomes, awards, or patient-volume claims.',
+  trustCopy:
+    'Trust cues describe the page experience itself and avoid ratings, outcomes, awards, or patient-volume claims.',
   trustCards: [
     { kicker: 'Comfort', title: 'Calm appointment flow', copy: 'Visitors can see how to contact the clinic without pressure.' },
     { kicker: 'Clarity', title: 'Treatment topics, not claims', copy: 'Services stay consultation-led and avoid guaranteed outcomes.' },
@@ -60,8 +123,12 @@ export const dentistConfig = {
     { title: 'Visit studio', copy: 'Arrive for a clear and calm clinic experience.', icon: ShieldCheck },
     { title: 'Review next steps', copy: 'Leave with simple follow-up information.', icon: Sparkles },
   ],
+  testimonials: sharedTestimonials,
+  faqs: sharedFaqs('dental'),
   ctaTitle: 'Preview a premium dental consultation flow.',
-  ctaCopy: clinic => `This sample keeps outreach direct with prominent contact actions for ${clinic.clinicName} in ${clinic.city}.`,
+  ctaCopy: (clinic) =>
+    `This sample keeps outreach direct with prominent contact actions for ${clinic.clinicName} in ${clinic.city}.`,
+  footerTagline: 'Premium dental studio design concept.',
 };
 
 export const dermatologyConfig = {
@@ -74,22 +141,41 @@ export const dermatologyConfig = {
   miniLabel: 'Skin consult',
   appointmentTitle: 'Book skin consultation',
   visualLabel: 'Dermatology',
-  colors: { accent: '#c084fc', soft: '#faf5ff', strong: '#7e22ce', glow: 'rgba(216, 180, 254, 0.46)' },
+  colors: {
+    accent: '#c084fc',
+    soft: '#faf5ff',
+    strong: '#7e22ce',
+    glow: 'rgba(216, 180, 254, 0.46)',
+  },
+  heroBg:
+    'linear-gradient(135deg, #fdf4ff 0%, #fce7f3 45%, #ffffff 100%)',
   heroTitlePrefix: 'Modern dermatology concept for',
   heroTitleAccent: 'clearer skin-care conversations.',
-  heroCopy: clinic => `${clinic.clinicName} is presented as a premium dermatology design preview for ${clinic.city}, focused on soft visual hierarchy, discretion, and consultation-led copy.`,
+  heroCopy: (clinic) =>
+    `${clinic.clinicName} is presented as a premium dermatology design preview for ${clinic.city}, focused on soft visual hierarchy, discretion, and consultation-led copy.`,
   heroBadges: ['Skin consultation framing', 'Beauty plus medical trust', 'Private, measured copy'],
-  visualCards: ['Acne care and skin consultation sections', 'Laser and anti-aging inquiry paths', 'Soft rose and lavender visual system'],
+  visualCards: [
+    'Acne care and skin consultation sections',
+    'Laser and anti-aging inquiry paths',
+  ],
   servicesTitle: 'Skin-clinic sections with a calm editorial feel.',
-  servicesCopy: 'Service areas are framed as consultation topics, avoiding before-and-after promises or outcome claims.',
+  servicesCopy:
+    'Service areas are framed as consultation topics, avoiding before-and-after promises or outcome claims.',
   services: [
     { title: 'Acne care', description: 'A clear entry point for acne-related consultation inquiries.', icon: Sparkles },
     { title: 'Laser treatment', description: 'Premium framing for laser treatment conversations.', icon: ScanFace },
     { title: 'Anti-aging', description: 'Careful language for age-related skin-care interest.', icon: ShieldCheck },
     { title: 'Skin consultation', description: 'A calm pathway for first-time dermatology visitors.', icon: HeartPulse },
   ],
+  stats: [
+    { value: '4', label: 'Care steps' },
+    { value: '2', label: 'Contact options' },
+    { value: '4+', label: 'Skin topics' },
+    { value: '100%', label: 'Mobile-ready' },
+  ],
   trustTitle: 'A private, premium tone for skin-care decisions.',
-  trustCopy: 'The template emphasizes clarity, discretion, and careful language instead of dramatic transformations.',
+  trustCopy:
+    'The template emphasizes clarity, discretion, and careful language instead of dramatic transformations.',
   trustCards: [
     { kicker: 'Privacy', title: 'Composed patient flow', copy: 'The design avoids sensational visuals and keeps the experience calm.' },
     { kicker: 'Restraint', title: 'No before-after promises', copy: 'Language stays consultative instead of outcome-driven.' },
@@ -103,8 +189,12 @@ export const dermatologyConfig = {
     { title: 'Visit clinic', copy: 'Arrive for a guided dermatology conversation.', icon: ShieldCheck },
     { title: 'Receive guidance', copy: 'Leave with clear next-step information.', icon: HeartPulse },
   ],
+  testimonials: sharedTestimonials,
+  faqs: sharedFaqs('dermatology'),
   ctaTitle: 'Create a calmer dermatology inquiry experience.',
-  ctaCopy: clinic => `Use this sample CTA style for ${clinic.clinicName} to make skin consultation inquiries feel simple and respectful.`,
+  ctaCopy: (clinic) =>
+    `Use this sample CTA style for ${clinic.clinicName} to make skin consultation inquiries feel simple and respectful.`,
+  footerTagline: 'Premium skin clinic design concept.',
 };
 
 export const physioConfig = {
@@ -117,12 +207,23 @@ export const physioConfig = {
   miniLabel: 'Recovery plan',
   appointmentTitle: 'Start recovery plan',
   visualLabel: 'Physiotherapy',
-  colors: { accent: '#34d399', soft: '#ecfdf5', strong: '#047857', glow: 'rgba(110, 231, 183, 0.46)' },
+  colors: {
+    accent: '#34d399',
+    soft: '#ecfdf5',
+    strong: '#047857',
+    glow: 'rgba(110, 231, 183, 0.46)',
+  },
+  heroBg:
+    'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 45%, #ffffff 100%)',
   heroTitlePrefix: 'Premium physiotherapy concept for',
   heroTitleAccent: 'guided movement support.',
-  heroCopy: clinic => `${clinic.clinicName} is shaped as a clean physiotherapy preview for ${clinic.city}, with approachable visit planning and practical recovery-focused content.`,
+  heroCopy: (clinic) =>
+    `${clinic.clinicName} is shaped as a clean physiotherapy preview for ${clinic.city}, with approachable visit planning and practical recovery-focused content.`,
   heroBadges: ['Movement-led visit flow', 'Recovery-focused sections', 'Posture and rehab tone'],
-  visualCards: ['Spine therapy and posture sections', 'Sports injury and rehab inquiry paths', 'Active green recovery visual system'],
+  visualCards: [
+    'Spine therapy and posture sections',
+    'Sports injury and rehab inquiry paths',
+  ],
   servicesTitle: 'Physiotherapy sections with movement, clarity, and care.',
   servicesCopy: 'Copy is framed around support and guidance without claiming recovery guarantees.',
   services: [
@@ -130,6 +231,12 @@ export const physioConfig = {
     { title: 'Sports injury', description: 'Responsible framing for sports injury rehab interest.', icon: Dumbbell },
     { title: 'Posture correction', description: 'Practical content for posture and workplace movement concerns.', icon: HeartPulse },
     { title: 'Rehab', description: 'A clear pathway for guided rehabilitation conversations.', icon: MoveRight },
+  ],
+  stats: [
+    { value: '4', label: 'Care steps' },
+    { value: '2', label: 'Contact options' },
+    { value: '4+', label: 'Recovery topics' },
+    { value: '100%', label: 'Mobile-ready' },
   ],
   trustTitle: 'Recovery support presented with practical clarity.',
   trustCopy: 'The template feels active and reassuring without promising recovery timelines or results.',
@@ -146,8 +253,12 @@ export const physioConfig = {
     { title: 'Attend session', copy: 'Arrive for a guided movement conversation.', icon: Dumbbell },
     { title: 'Plan follow-up', copy: 'Review practical next-step information.', icon: MoveRight },
   ],
+  testimonials: sharedTestimonials,
+  faqs: sharedFaqs('physiotherapy'),
   ctaTitle: 'Preview a premium physiotherapy contact flow.',
-  ctaCopy: clinic => `${clinic.clinicName} can use this sample layout to make session inquiries feel direct and supportive.`,
+  ctaCopy: (clinic) =>
+    `${clinic.clinicName} can use this sample layout to make session inquiries feel direct and supportive.`,
+  footerTagline: 'Premium physiotherapy design concept.',
 };
 
 export const diagnosticConfig = {
@@ -160,19 +271,37 @@ export const diagnosticConfig = {
   miniLabel: 'Reports',
   appointmentTitle: 'Book health checkup',
   visualLabel: 'Diagnostics',
-  colors: { accent: '#38bdf8', soft: '#f0f9ff', strong: '#0369a1', glow: 'rgba(125, 211, 252, 0.5)' },
+  colors: {
+    accent: '#38bdf8',
+    soft: '#f0f9ff',
+    strong: '#0369a1',
+    glow: 'rgba(125, 211, 252, 0.5)',
+  },
+  heroBg:
+    'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 45%, #f0f8ff 100%)',
   heroTitlePrefix: 'Modern diagnostic center concept for',
   heroTitleAccent: 'clearer test booking.',
-  heroCopy: clinic => `${clinic.clinicName} is presented as a premium diagnostic-center preview for ${clinic.city}, focused on simple booking, clean information, and report-oriented navigation.`,
+  heroCopy: (clinic) =>
+    `${clinic.clinicName} is presented as a premium diagnostic-center preview for ${clinic.city}, focused on simple booking, clean information, and report-oriented navigation.`,
   heroBadges: ['Lab-report navigation', 'Precision-inspired layout', 'Fast booking path'],
-  visualCards: ['Blood tests and package hierarchy', 'Imaging and report support cues', 'Light blue and indigo lab style'],
+  visualCards: [
+    'Blood tests and package hierarchy',
+    'Imaging and report support cues',
+  ],
   servicesTitle: 'Diagnostic sections built for clarity and quick scanning.',
-  servicesCopy: 'The template focuses on booking and information flow, without making accuracy or turnaround claims.',
+  servicesCopy:
+    'The template focuses on booking and information flow, without making accuracy or turnaround claims.',
   services: [
     { title: 'Blood tests', description: 'A clean pathway for common blood test inquiries.', icon: FlaskConical },
     { title: 'Health packages', description: 'Organized package-style information without performance claims.', icon: Microscope },
     { title: 'Imaging', description: 'Clear navigation for imaging and scan-related questions.', icon: ClipboardCheck },
     { title: 'Same-day reports', description: 'Report-oriented flow presented without turnaround promises.', icon: Clock },
+  ],
+  stats: [
+    { value: '4', label: 'Booking steps' },
+    { value: '2', label: 'Contact options' },
+    { value: '4+', label: 'Test categories' },
+    { value: '100%', label: 'Mobile-ready' },
   ],
   trustTitle: 'Diagnostic browsing designed for quick understanding.',
   trustCopy: 'Trust comes from organized information, measured language, and visible contact paths.',
@@ -189,8 +318,12 @@ export const diagnosticConfig = {
     { title: 'Visit center', copy: 'Arrive for the diagnostic appointment.', icon: Microscope },
     { title: 'Access reports', copy: 'Find report support information clearly.', icon: ClipboardCheck },
   ],
+  testimonials: sharedTestimonials,
+  faqs: sharedFaqs('diagnostic'),
   ctaTitle: 'Preview a premium diagnostic booking flow.',
-  ctaCopy: clinic => `This CTA layout helps ${clinic.clinicName} make test inquiries easier to start on mobile and desktop.`,
+  ctaCopy: (clinic) =>
+    `This CTA layout helps ${clinic.clinicName} make test inquiries easier to start on mobile and desktop.`,
+  footerTagline: 'Premium diagnostic center design concept.',
 };
 
 export const hospitalConfig = {
@@ -203,19 +336,37 @@ export const hospitalConfig = {
   miniLabel: 'Departments',
   appointmentTitle: 'Book appointment',
   visualLabel: 'Hospital Care',
-  colors: { accent: '#14b8a6', soft: '#f0fdfa', strong: '#0f766e', glow: 'rgba(45, 212, 191, 0.36)' },
+  colors: {
+    accent: '#14b8a6',
+    soft: '#f0fdfa',
+    strong: '#0f766e',
+    glow: 'rgba(45, 212, 191, 0.36)',
+  },
+  heroBg:
+    'linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 45%, #f8fffe 100%)',
   heroTitlePrefix: 'Premium hospital website concept for',
   heroTitleAccent: 'clearer care navigation.',
-  heroCopy: clinic => `${clinic.clinicName} is shaped as a hospital homepage preview for ${clinic.city}, with clear department discovery, contact actions, and trust-focused structure.`,
-  heroBadges: ['Multi-specialty structure', 'Emergency-ready information area', 'Trusted care navigation'],
-  visualCards: ['OPD and specialist care sections', 'Emergency and surgery inquiry paths', 'Premium navy and teal healthcare style'],
+  heroCopy: (clinic) =>
+    `${clinic.clinicName} is shaped as a hospital homepage preview for ${clinic.city}, with clear department discovery, contact actions, and trust-focused structure.`,
+  heroBadges: ['Multi-specialty structure', 'Emergency-ready information', 'Trusted care navigation'],
+  visualCards: [
+    'OPD and specialist care sections',
+    'Emergency and surgery inquiry paths',
+  ],
   servicesTitle: 'Hospital sections that organize care without overwhelming visitors.',
-  servicesCopy: 'The layout supports broad healthcare navigation while avoiding claims about outcomes or rankings.',
+  servicesCopy:
+    'The layout supports broad healthcare navigation while avoiding claims about outcomes or rankings.',
   services: [
     { title: 'OPD', description: 'A clear outpatient discovery section for appointment-led browsing.', icon: Hospital },
     { title: 'Emergency', description: 'Structured urgent-contact information if provided by the business.', icon: Ambulance },
     { title: 'Surgery', description: 'Careful framing for procedure-related inquiry pathways.', icon: Stethoscope },
     { title: 'Specialist care', description: 'Easy navigation for specialist consultation interest.', icon: ShieldCheck },
+  ],
+  stats: [
+    { value: '4', label: 'Care steps' },
+    { value: '2', label: 'Contact options' },
+    { value: '4+', label: 'Departments' },
+    { value: '100%', label: 'Mobile-ready' },
   ],
   trustTitle: 'A clear structure for healthcare decisions.',
   trustCopy: 'The template uses navigation, clarity, and restraint instead of fake rankings or awards.',
@@ -232,8 +383,12 @@ export const hospitalConfig = {
     { title: 'Plan visit', copy: 'Confirm basic appointment or visit details.', icon: CalendarDays },
     { title: 'Follow guidance', copy: 'Review the next-step information provided.', icon: ShieldCheck },
   ],
+  testimonials: sharedTestimonials,
+  faqs: sharedFaqs('hospital'),
   ctaTitle: 'Preview a premium hospital inquiry experience.',
-  ctaCopy: clinic => `This sample CTA style helps ${clinic.clinicName} guide visitors toward the right contact path.`,
+  ctaCopy: (clinic) =>
+    `This sample CTA style helps ${clinic.clinicName} guide visitors toward the right contact path.`,
+  footerTagline: 'Premium hospital design concept.',
 };
 
 export const ayurvedaConfig = {
@@ -246,12 +401,23 @@ export const ayurvedaConfig = {
   miniLabel: 'Wellness',
   appointmentTitle: 'Book wellness consultation',
   visualLabel: 'Ayurveda',
-  colors: { accent: '#84cc16', soft: '#f7fee7', strong: '#4d7c0f', glow: 'rgba(254, 215, 170, 0.48)' },
+  colors: {
+    accent: '#84cc16',
+    soft: '#f7fee7',
+    strong: '#4d7c0f',
+    glow: 'rgba(254, 215, 170, 0.48)',
+  },
+  heroBg:
+    'linear-gradient(135deg, #f7fee7 0%, #fefce8 45%, #fffbf0 100%)',
   heroTitlePrefix: 'Premium Ayurveda website concept for',
   heroTitleAccent: 'calm wellness inquiries.',
-  heroCopy: clinic => `${clinic.clinicName} is presented as a serene Ayurveda preview for ${clinic.city}, with soft wellness storytelling and easy consultation actions.`,
+  heroCopy: (clinic) =>
+    `${clinic.clinicName} is presented as a serene Ayurveda preview for ${clinic.city}, with soft wellness storytelling and easy consultation actions.`,
   heroBadges: ['Natural wellness tone', 'Warm heritage-inspired palette', 'Calm consultation flow'],
-  visualCards: ['Panchakarma and wellness sections', 'Stress care and immunity inquiry paths', 'Warm cream, green, and amber natural style'],
+  visualCards: [
+    'Panchakarma and wellness sections',
+    'Stress care and immunity inquiry paths',
+  ],
   servicesTitle: 'Ayurveda sections with a serene premium feel.',
   servicesCopy: 'The copy stays gentle and consultative without cure or outcome claims.',
   services: [
@@ -259,6 +425,12 @@ export const ayurvedaConfig = {
     { title: 'Stress care', description: 'Gentle copy for stress and lifestyle-support conversations.', icon: Flower2 },
     { title: 'Immunity', description: 'Wellness framing that avoids cure or outcome claims.', icon: Heart },
     { title: 'Wellness consultation', description: 'A clear entry point for Ayurveda consultation requests.', icon: Sun },
+  ],
+  stats: [
+    { value: '4', label: 'Care steps' },
+    { value: '2', label: 'Contact options' },
+    { value: '4+', label: 'Wellness topics' },
+    { value: '100%', label: 'Mobile-ready' },
   ],
   trustTitle: 'A calm wellness tone with responsible copy.',
   trustCopy: 'The template emphasizes consultation, comfort, and clarity without cure claims.',
@@ -275,8 +447,12 @@ export const ayurvedaConfig = {
     { title: 'Visit clinic', copy: 'Arrive for a calm consultation conversation.', icon: Flower2 },
     { title: 'Review guidance', copy: 'Leave with clear next-step information.', icon: Sun },
   ],
+  testimonials: sharedTestimonials,
+  faqs: sharedFaqs('Ayurveda'),
   ctaTitle: 'Preview a premium Ayurveda consultation flow.',
-  ctaCopy: clinic => `${clinic.clinicName} can use this sample CTA section to keep wellness inquiries simple and calm.`,
+  ctaCopy: (clinic) =>
+    `${clinic.clinicName} can use this sample CTA section to keep wellness inquiries simple and calm.`,
+  footerTagline: 'Premium Ayurveda wellness design concept.',
 };
 
 export const templateByBusinessType = {

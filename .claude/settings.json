@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git push *)",
+      "Bash(npx serve *)",
+      "Bash(curl -s -o /dev/null -w \"root: %{http_code}\\\\n\" http://localhost:3030/)",
+      "Bash(curl -s -o /dev/null -w \"hospital: %{http_code}\\\\n\" http://localhost:3030/kims-hospital-kompally-hyderabad-hyderabad/)",
+      "Bash(curl -s -o /dev/null -w \"dentist: %{http_code}\\\\n\" http://localhost:3030/richsmile-design-mumbai/)",
+      "Bash(curl -s -o /dev/null -w \"dermatologist: %{http_code}\\\\n\" http://localhost:3030/avya-skin-clinic-gurugram/)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
