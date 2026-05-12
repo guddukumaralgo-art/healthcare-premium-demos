@@ -83,6 +83,7 @@ export const dentistConfig = {
   },
   heroBg:
     'linear-gradient(135deg, #ecfeff 0%, #e0f8ff 45%, #f8f9ff 100%)',
+  heroGradient: 'from-cyan-600 via-sky-500 to-blue-500',
   heroTitlePrefix: 'Premium dental care concept for',
   heroTitleAccent: 'comfort-first smile journeys.',
   heroCopy: (clinic) =>
@@ -149,6 +150,7 @@ export const dermatologyConfig = {
   },
   heroBg:
     'linear-gradient(135deg, #fdf4ff 0%, #fce7f3 45%, #ffffff 100%)',
+  heroGradient: 'from-violet-600 via-fuchsia-500 to-pink-500',
   heroTitlePrefix: 'Modern dermatology concept for',
   heroTitleAccent: 'clearer skin-care conversations.',
   heroCopy: (clinic) =>
@@ -215,6 +217,7 @@ export const physioConfig = {
   },
   heroBg:
     'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 45%, #ffffff 100%)',
+  heroGradient: 'from-emerald-600 via-teal-500 to-green-500',
   heroTitlePrefix: 'Premium physiotherapy concept for',
   heroTitleAccent: 'guided movement support.',
   heroCopy: (clinic) =>
@@ -279,6 +282,7 @@ export const diagnosticConfig = {
   },
   heroBg:
     'linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 45%, #f0f8ff 100%)',
+  heroGradient: 'from-sky-600 via-blue-500 to-indigo-500',
   heroTitlePrefix: 'Modern diagnostic center concept for',
   heroTitleAccent: 'clearer test booking.',
   heroCopy: (clinic) =>
@@ -344,6 +348,7 @@ export const hospitalConfig = {
   },
   heroBg:
     'linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 45%, #f8fffe 100%)',
+  heroGradient: 'from-teal-600 via-cyan-500 to-blue-400',
   heroTitlePrefix: 'Premium hospital website concept for',
   heroTitleAccent: 'clearer care navigation.',
   heroCopy: (clinic) =>
@@ -409,6 +414,7 @@ export const ayurvedaConfig = {
   },
   heroBg:
     'linear-gradient(135deg, #f7fee7 0%, #fefce8 45%, #fffbf0 100%)',
+  heroGradient: 'from-lime-600 via-green-500 to-amber-500',
   heroTitlePrefix: 'Premium Ayurveda website concept for',
   heroTitleAccent: 'calm wellness inquiries.',
   heroCopy: (clinic) =>
