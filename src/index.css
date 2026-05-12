@@ -89,7 +89,7 @@ body::-webkit-scrollbar-thumb:hover {
 /* Premium blob — organic morphing background element */
 .premium-blob {
   border-radius: 38% 62% 65% 35% / 42% 44% 56% 58%;
-  filter: blur(80px);
+  filter: blur(52px);
   pointer-events: none;
   transform: rotate(-10deg);
   will-change: transform;
@@ -262,4 +262,15 @@ body::-webkit-scrollbar-thumb:hover {
 .section-divide {
   height: 1px;
   background: linear-gradient(90deg, transparent 0%, rgba(148,163,184,0.25) 50%, transparent 100%);
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-delayed,
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-bounce-subtle { animation: none !important; }
+  .text-gradient-animate  { animation: none !important; }
+  .premium-button::after  { transition: none !important; }
 }

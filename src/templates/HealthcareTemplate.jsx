@@ -269,13 +269,13 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
           style={{ background: config.heroBg || 'linear-gradient(135deg,#f8fdff 0%,#f0f9ff 100%)' }}
           className="relative overflow-hidden px-4 pb-36 pt-12 sm:px-6 sm:pb-48 sm:pt-24 lg:px-8 lg:pb-60 lg:pt-28"
         >
-          {/* Background mesh */}
+          {/* Background mesh — only 1 blob animates to reduce GPU load */}
           <div
             className="premium-blob animate-float absolute -left-32 -top-16 h-[40rem] w-[44rem] opacity-70"
             style={{ background: config.colors.glow }}
           />
-          <div className="premium-blob animate-float-delayed absolute -right-28 top-20 h-[32rem] w-[36rem] bg-violet-200/25" />
-          <div className="premium-blob animate-float-slow absolute bottom-8 left-1/3 h-80 w-[32rem] bg-teal-100/20" />
+          <div className="premium-blob absolute -right-28 top-20 h-[32rem] w-[36rem] bg-violet-200/25" />
+          <div className="premium-blob absolute bottom-8 left-1/3 h-80 w-[32rem] bg-teal-100/20" />
 
           {/* Mesh noise overlay */}
           <div
@@ -296,7 +296,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
 
               {/* Live badge */}
               <motion.div variants={fu} className="mb-7 inline-flex">
-                <span className="animate-bounce-subtle inline-flex items-center gap-2.5 rounded-full border border-[var(--accent-soft)] bg-white/85 px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)] shadow-card backdrop-blur-xl">
+                <span className="animate-bounce-subtle inline-flex items-center gap-2.5 rounded-full border border-[var(--accent-soft)] bg-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)] shadow-card">
                   <span className="relative flex h-1.5 w-1.5">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--accent)] opacity-60" />
                     <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-[var(--accent)]" />
@@ -385,7 +385,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
                     key={item}
                     variants={fu}
                     whileHover={{ y: -4, transition: { duration: 0.18 } }}
-                    className="flex items-center gap-3 rounded-2xl border border-white/60 bg-white/72 p-4 shadow-card backdrop-blur-xl transition-shadow hover:shadow-card-md"
+                    className="flex items-center gap-3 rounded-2xl border border-slate-100/80 bg-white/90 p-4 shadow-card transition-shadow hover:shadow-card-md"
                   >
                     <div
                       className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
@@ -439,11 +439,11 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
 
                   {/* Top bar */}
                   <div className="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
-                    <div className="rounded-full bg-white/92 px-4 py-1.5 text-[13px] font-semibold backdrop-blur-xl" style={{ color: config.colors.strong }}>
+                    <div className="rounded-full bg-white/94 px-4 py-1.5 text-[13px] font-semibold" style={{ color: config.colors.strong }}>
                       {config.visualLabel}
                     </div>
                     <div
-                      className="flex h-11 w-11 items-center justify-center rounded-full bg-white/92 shadow-card backdrop-blur-xl"
+                      className="flex h-11 w-11 items-center justify-center rounded-full bg-white/95 shadow-card"
                       style={{ color: config.colors.strong }}
                     >
                       <config.heroIcon className="h-5 w-5" />
@@ -455,7 +455,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
                     {config.visualCards.slice(0, 2).map((card) => (
                       <div
                         key={card}
-                        className="rounded-[1.1rem] border border-white/60 bg-white/85 px-4 py-3 text-[13px] font-medium text-slate-700 shadow-card backdrop-blur-xl"
+                        className="rounded-[1.1rem] border border-white/60 bg-white/90 px-4 py-3 text-[13px] font-medium text-slate-700 shadow-card"
                       >
                         {card}
                       </div>
@@ -647,7 +647,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
           }}
         >
           <div
-            className="premium-blob animate-float-slow absolute -left-20 top-20 h-96 w-96 opacity-35"
+            className="premium-blob absolute -left-20 top-20 h-96 w-96 opacity-35"
             style={{ background: config.colors.glow }}
           />
           <div className="relative mx-auto max-w-7xl">
@@ -714,7 +714,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
 
         {/* ╔═ TRUST ═════════════════════════════════════════╗ */}
         <section id="trust" className="relative bg-white px-4 py-28 sm:px-6 lg:px-8 lg:py-36">
-          <div className="premium-blob animate-float-reverse absolute right-0 top-10 h-80 w-80 bg-violet-200/30 opacity-45" />
+          <div className="premium-blob absolute right-0 top-10 h-80 w-80 bg-violet-200/30 opacity-45" />
           <div className="relative mx-auto max-w-7xl">
             <SectionHeading
               eyebrow="Trust cues"
@@ -966,12 +966,12 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
               padding: 'clamp(2.5rem, 5vw, 4.5rem)',
             }}
           >
-            {/* Animated blobs */}
+            {/* Blobs — only 1 animates */}
             <div
               className="premium-blob animate-float absolute -right-16 -top-16 h-96 w-96 opacity-60"
               style={{ background: `${config.colors.accent}18` }}
             />
-            <div className="premium-blob animate-float-delayed absolute -bottom-20 -left-20 h-80 w-80 bg-violet-500/8" />
+            <div className="premium-blob absolute -bottom-20 -left-20 h-80 w-80 bg-violet-500/8" />
 
             {/* Dot grid */}
             <div
