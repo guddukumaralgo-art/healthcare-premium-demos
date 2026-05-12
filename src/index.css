@@ -18,10 +18,10 @@ html { scroll-behavior: smooth; }
 body {
   @apply min-h-screen bg-[#f8fdff] text-slate-950 antialiased;
   background-image:
-    radial-gradient(ellipse at 0% 0%,   rgba(125, 211, 252, 0.18), transparent 32rem),
-    radial-gradient(ellipse at 92% 6%,  rgba(196, 181, 253, 0.15), transparent 28rem),
-    radial-gradient(ellipse at 50% 96%, rgba(153, 246, 228, 0.12), transparent 24rem),
-    linear-gradient(180deg, #f8fdff 0%, #f3f8ff 50%, #f8fdff 100%);
+    radial-gradient(ellipse at 0% 0%,   rgba(125, 211, 252, 0.16), transparent 36rem),
+    radial-gradient(ellipse at 94% 5%,  rgba(196, 181, 253, 0.13), transparent 30rem),
+    radial-gradient(ellipse at 48% 98%, rgba(153, 246, 228, 0.11), transparent 26rem),
+    linear-gradient(180deg, #f8fdff 0%, #f2f8ff 55%, #f8fdff 100%);
 }
 
 /* Subtle dot-grid overlay */
@@ -29,25 +29,25 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(15, 23, 42, 0.028) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: radial-gradient(circle, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+  background-size: 28px 28px;
   pointer-events: none;
   z-index: 0;
 }
 
 /* ── Scrollbar ──────────────────────────────────────────── */
-body::-webkit-scrollbar         { width: 6px; }
+body::-webkit-scrollbar         { width: 5px; }
 body::-webkit-scrollbar-track   { background: transparent; }
 body::-webkit-scrollbar-thumb   {
-  background: linear-gradient(180deg, rgba(14,116,144,0.35), rgba(109,40,217,0.25));
+  background: linear-gradient(180deg, rgba(14,116,144,0.32), rgba(109,40,217,0.22));
   border-radius: 9999px;
 }
 body::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(14,116,144,0.6), rgba(109,40,217,0.45));
+  background: linear-gradient(180deg, rgba(14,116,144,0.58), rgba(109,40,217,0.42));
 }
 
 /* ── Selection ──────────────────────────────────────────── */
-::selection { background: rgba(20, 184, 166, 0.2); color: #0f172a; }
+::selection { background: rgba(20, 184, 166, 0.18); color: #0f172a; }
 
 /* ══════════════════════════════════════════════════════════
    GLASS SYSTEM
@@ -55,32 +55,41 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Standard glass card — used on white sections */
 .glass-card {
-  background: rgba(255, 255, 255, 0.80);
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(18px) saturate(170%);
+  -webkit-backdrop-filter: blur(18px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.58);
   box-shadow:
     0 1px 0   rgba(255, 255, 255, 0.95) inset,
-    0 24px 64px rgba(15, 23, 42, 0.07);
+    0 24px 64px rgba(15, 23, 42, 0.08);
 }
 
 /* Floating glass card — for hero overlay elements */
 .glass-float {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.84);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.70);
   box-shadow:
     0 2px 0   rgba(255, 255, 255, 1)    inset,
-    0 -1px 0  rgba(255, 255, 255, 0.4)  inset,
-    0 32px 72px rgba(15, 23, 42, 0.10),
-    0 8px  24px rgba(15, 23, 42, 0.06);
+    0 -1px 0  rgba(255, 255, 255, 0.45) inset,
+    0 36px 80px rgba(15, 23, 42, 0.11),
+    0 8px  24px rgba(15, 23, 42, 0.06),
+    0 0 0 0.5px rgba(255, 255, 255, 0.6);
+}
+
+/* Deep dark glass — for dark sections */
+.glass-dark {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 /* Premium blob — organic morphing background element */
 .premium-blob {
   border-radius: 38% 62% 65% 35% / 42% 44% 56% 58%;
-  filter: blur(72px);
+  filter: blur(80px);
   pointer-events: none;
   transform: rotate(-10deg);
   will-change: transform;
@@ -93,7 +102,7 @@ body::-webkit-scrollbar-thumb:hover {
 .premium-button {
   @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold
          transition-all duration-300 ease-out
-         hover:-translate-y-[3px] hover:shadow-[0_8px_28px_rgba(15,23,42,0.18)]
+         hover:-translate-y-[3px] hover:shadow-[0_10px_32px_rgba(15,23,42,0.20)]
          focus:outline-none focus:ring-4 active:translate-y-0 active:shadow-none;
   position: relative;
   overflow: hidden;
@@ -106,25 +115,25 @@ body::-webkit-scrollbar-thumb:hover {
   inset: 0;
   background: linear-gradient(
     108deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.26) 50%,
-    transparent 65%
+    transparent 30%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 70%
   );
-  background-size: 220% 100%;
-  background-position: -110% 0;
-  transition: background-position 0.6s ease;
+  background-size: 240% 100%;
+  background-position: -120% 0;
+  transition: background-position 0.55s ease;
   pointer-events: none;
 }
 .premium-button:hover::after {
-  background-position: 210% 0;
+  background-position: 220% 0;
 }
 
 /* Primary button accent glow on hover */
 .btn-accent-glow:hover {
   box-shadow:
     0 0 0 3px var(--accent-soft, rgba(34, 211, 238, 0.25)),
-    0 8px 28px rgba(15, 23, 42, 0.18),
-    0 0 24px var(--accent-glow, rgba(34, 211, 238, 0.3));
+    0 10px 32px rgba(15, 23, 42, 0.22),
+    0 0 28px var(--accent-glow, rgba(34, 211, 238, 0.32));
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -143,7 +152,7 @@ body::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     135deg,
     var(--accent, #22d3ee) 0%,
-    rgba(167, 139, 250, 0.75) 50%,
+    rgba(167, 139, 250, 0.70) 50%,
     var(--accent, #22d3ee) 100%
   );
   background-size: 200% 200%;
@@ -157,14 +166,14 @@ body::-webkit-scrollbar-thumb:hover {
 }
 .gradient-border:hover::before { opacity: 1; }
 
-/* Top-highlight stripe — adds a subtle shine to card tops */
+/* Top-highlight stripe */
 .card-highlight::after {
   content: '';
   position: absolute;
   inset-inline: 0;
   top: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.9) 40%, rgba(255,255,255,0.9) 60%, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.92) 40%, rgba(255,255,255,0.92) 60%, transparent);
   border-radius: inherit;
   pointer-events: none;
 }
@@ -188,13 +197,13 @@ body::-webkit-scrollbar-thumb:hover {
 
 @keyframes float {
   0%, 100% { transform: translateY(0px)   rotate(0deg); }
-  33%       { transform: translateY(-10px) rotate(0.5deg); }
-  66%       { transform: translateY(-6px)  rotate(-0.3deg); }
+  33%       { transform: translateY(-12px) rotate(0.6deg); }
+  66%       { transform: translateY(-7px)  rotate(-0.4deg); }
 }
 
 @keyframes float-reverse {
   0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(10px); }
+  50%       { transform: translateY(12px); }
 }
 
 @keyframes gradient-x {
@@ -209,7 +218,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 @keyframes pulse-ring {
   0%   { transform: scale(0.85); opacity: 1; }
-  100% { transform: scale(2.0);  opacity: 0; }
+  100% { transform: scale(2.1);  opacity: 0; }
 }
 
 @keyframes bounce-subtle {
@@ -218,8 +227,13 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @keyframes fade-slide-up {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* ══════════════════════════════════════════════════════════
@@ -236,12 +250,16 @@ body::-webkit-scrollbar-thumb:hover {
    MISC UTILITIES
    ══════════════════════════════════════════════════════════ */
 
-/* Glow text on dark backgrounds */
 .glow-text {
-  text-shadow: 0 0 48px var(--accent-glow, rgba(34, 211, 238, 0.4));
+  text-shadow: 0 0 52px var(--accent-glow, rgba(34, 211, 238, 0.42));
 }
 
-/* Section soft separator */
 .section-top-fade {
   background: linear-gradient(180deg, rgba(248,253,255,0) 0%, #f8fdff 100%);
+}
+
+/* Smooth section divider */
+.section-divide {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(148,163,184,0.25) 50%, transparent 100%);
 }
