@@ -10,6 +10,8 @@ import {
 } from 'lucide-react';
 import DisclaimerBadge from '../components/DisclaimerBadge.jsx';
 
+const fallbackImage = `${import.meta.env.BASE_URL}images/smilecare-studio.png`;
+
 const fallbackClinic = {
   clinicName: 'SmileCare Dental Studio',
   doctorName: 'Dr. Ananya Sharma',
@@ -18,6 +20,8 @@ const fallbackClinic = {
   phoneDisplay: '+91 98765 43210',
   phoneHref: 'tel:+919876543210',
   whatsappHref: 'https://wa.me/919876543210',
+  heroImage: fallbackImage,
+  services: [],
 };
 
 function SectionHeading({ eyebrow, title, copy, align = 'left' }) {
@@ -40,6 +44,16 @@ function SectionHeading({ eyebrow, title, copy, align = 'left' }) {
 
 export default function HealthcareTemplate({ config, clinic = fallbackClinic }) {
   const mergedClinic = { ...fallbackClinic, ...clinic };
+  const heroCopy = mergedClinic.subheadline || config.heroCopy(mergedClinic);
+  const heroTitle = mergedClinic.headline || config.heroTitlePrefix;
+  const imageSrc = mergedClinic.heroImage || fallbackImage;
+  const services = mergedClinic.services?.length
+    ? mergedClinic.services.slice(0, 4).map((title, index) => ({
+      title,
+      description: config.services[index % config.services.length].description,
+      icon: config.services[index % config.services.length].icon,
+    }))
+    : config.services;
   const style = {
     '--accent': config.colors.accent,
     '--accent-soft': config.colors.soft,
@@ -61,7 +75,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
             <span className="sm:hidden">{config.shortLabel}</span>
           </a>
           <div className="hidden rounded-full border border-slate-100 bg-slate-50/70 px-4 py-3 md:flex md:gap-7">
-            {['Services', 'Trust', 'Journey', 'Contact'].map(item => (
+            {['Services', 'About', 'Trust', 'Journey', 'Contact'].map(item => (
               <a key={item} href={`#${item.toLowerCase()}`} className="text-sm font-medium text-slate-600 transition hover:text-[var(--accent-strong)]">
                 {item}
               </a>
@@ -94,13 +108,13 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
                 {mergedClinic.city} {config.businessLabel}
               </p>
               <h1 className="max-w-4xl text-[2.95rem] font-semibold leading-[0.98] tracking-normal text-slate-950 sm:text-6xl lg:text-[5.2rem]">
-                {config.heroTitlePrefix}{' '}
+                {heroTitle}{' '}
                 <span className="bg-gradient-to-r from-[var(--accent-strong)] via-teal-600 to-violet-700 bg-clip-text text-transparent">
                   {config.heroTitleAccent}
                 </span>
               </h1>
               <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl sm:leading-9">
-                {config.heroCopy(mergedClinic)}
+                {heroCopy}
               </p>
 
               <div className="mt-11 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -137,24 +151,31 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
               className="relative"
             >
               <div className="absolute -inset-6 rounded-[2.4rem] bg-gradient-to-br from-[var(--accent-glow)] via-white/25 to-violet-200/30 blur-2xl" />
-              <div className="relative rounded-[2rem] border border-white bg-white p-2 shadow-premium">
-                <div className="aspect-[4/3] overflow-hidden rounded-[1.55rem] bg-gradient-to-br from-[var(--accent-soft)] via-white to-violet-50 lg:aspect-[0.96]">
-                  <div className="flex h-full flex-col justify-between p-6 sm:p-8">
-                    <div className="flex items-center justify-between">
-                      <div className="rounded-full bg-white/80 px-4 py-2 text-sm font-semibold text-[var(--accent-strong)] shadow-sm backdrop-blur">
-                        {config.visualLabel}
-                      </div>
-                      <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-[var(--accent-strong)] shadow-card">
-                        <config.heroIcon className="h-6 w-6" />
-                      </div>
+              <div className="relative overflow-hidden rounded-[2rem] border border-white bg-white p-2 shadow-premium">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-[1.55rem] bg-gradient-to-br from-[var(--accent-soft)] via-white to-violet-50 lg:aspect-[0.96]">
+                  <img
+                    src={imageSrc}
+                    alt={`${mergedClinic.clinicName} design preview`}
+                    className="h-full w-full object-cover"
+                    onError={event => {
+                      event.currentTarget.src = fallbackImage;
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-white/20" />
+                  <div className="absolute inset-x-5 top-5 flex items-center justify-between gap-3">
+                    <div className="rounded-full bg-white/84 px-4 py-2 text-sm font-semibold text-[var(--accent-strong)] shadow-sm backdrop-blur-xl">
+                      {config.visualLabel}
                     </div>
-                    <div className="grid gap-4">
-                      {config.visualCards.map(card => (
-                        <div key={card} className="rounded-[1.35rem] border border-white/70 bg-white/72 p-4 text-sm font-medium text-slate-700 shadow-card backdrop-blur-xl">
-                          {card}
-                        </div>
-                      ))}
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/88 text-[var(--accent-strong)] shadow-card backdrop-blur-xl">
+                      <config.heroIcon className="h-6 w-6" />
                     </div>
+                  </div>
+                  <div className="absolute inset-x-5 bottom-5 grid gap-3">
+                    {config.visualCards.slice(0, 2).map(card => (
+                      <div key={card} className="rounded-[1.25rem] border border-white/70 bg-white/78 p-4 text-sm font-medium text-slate-700 shadow-card backdrop-blur-xl">
+                        {card}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -200,7 +221,7 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
           <SectionHeading eyebrow="Services" title={config.servicesTitle} copy={config.servicesCopy} />
 
           <div className="relative grid gap-5 sm:grid-cols-2 lg:gap-6 xl:grid-cols-4">
-            {config.services.map((service, index) => (
+            {services.map((service, index) => (
               <motion.article
                 key={service.title}
                 initial={{ opacity: 0, y: 24 }}
@@ -220,6 +241,39 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
                 </div>
               </motion.article>
             ))}
+          </div>
+        </section>
+
+        <section id="about" className="relative bg-gradient-to-br from-white via-[var(--accent-soft)]/40 to-white px-4 py-28 sm:px-6 lg:px-8 lg:py-36">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <SectionHeading
+                eyebrow="About"
+                title={`${mergedClinic.clinicName} in ${mergedClinic.city}.`}
+                copy={mergedClinic.about || `${mergedClinic.clinicName} is presented as a calm, modern, and patient-friendly ${config.shortLabel.toLowerCase()} sample experience.`}
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="rounded-[2rem] border border-white/80 bg-white/72 p-6 shadow-premium backdrop-blur-xl sm:p-8"
+              >
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {[
+                    ['Location', mergedClinic.address || mergedClinic.city],
+                    ['Specialty', mergedClinic.specialty],
+                    ['Template', config.businessLabel],
+                    ['Contact', mergedClinic.email || mergedClinic.phoneDisplay],
+                  ].map(([label, value]) => (
+                    <div key={label} className="rounded-[1.35rem] border border-slate-100 bg-white/80 p-5 shadow-card">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">{label}</p>
+                      <p className="mt-3 text-sm font-medium leading-6 text-slate-700">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </section>
 
@@ -314,6 +368,13 @@ export default function HealthcareTemplate({ config, clinic = fallbackClinic }) 
           </motion.div>
         </section>
       </main>
+
+      <div className="fixed inset-x-3 bottom-3 z-50 sm:hidden">
+        <a href={mergedClinic.phoneHref} className="flex items-center justify-center gap-2 rounded-full bg-slate-950 px-5 py-4 text-sm font-semibold text-white shadow-premium">
+          <Phone className="h-4 w-4" />
+          Call {mergedClinic.shortName || 'clinic'}
+        </a>
+      </div>
     </div>
   );
 }

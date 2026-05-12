@@ -278,3 +278,12 @@ export const ayurvedaConfig = {
   ctaTitle: 'Preview a premium Ayurveda consultation flow.',
   ctaCopy: clinic => `${clinic.clinicName} can use this sample CTA section to keep wellness inquiries simple and calm.`,
 };
+
+export const templateByBusinessType = {
+  dentist: dentistConfig,
+  dermatologist: dermatologyConfig,
+  physiotherapy: physioConfig,
+  'diagnostic-center': diagnosticConfig,
+  hospital: hospitalConfig,
+  ayurveda: ayurvedaConfig,
+};
